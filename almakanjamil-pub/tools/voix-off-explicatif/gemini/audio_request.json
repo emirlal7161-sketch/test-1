@@ -1,0 +1,21 @@
+{
+  "provider": "gemini",
+  "tts_model": "gemini-3.8-flash-tts",
+  "voice": "Puck",
+  "lang": "fr",
+  "style": "Voix off de publicité française, homme d'une trentaine d'années. Ton chaleureux, confiant et souriant : sérieux et crédible, mais enjoué. Rythme dynamique et vif, sans précipitation, diction très claire. Le nom de marque El Makane Djamil se prononce el-ma-kane-dja-mil, d'un seul souffle.",
+  "lines": [
+    { "id": "l01", "text": "Vous vivez en Égypte ?" },
+    { "id": "l02", "text": "Voici El Makane Djamil : les petites annonces entre francophones !" },
+    { "id": "l03", "text": "Un logement, un meuble, une voiture ? Achetez, vendez, louez, près de chez vous." },
+    { "id": "l04", "text": "Inscription en un clic, avec Google." },
+    { "id": "l05", "text": "Pour vendre, décrivez votre article :" },
+    { "id": "l06", "text": "l'IA remplit l'annonce pour vous." },
+    { "id": "l07", "text": "Une photo, un clic : c'est en ligne !" },
+    { "id": "l08", "text": "Les acheteurs vous contactent en direct, sur WhatsApp ou Telegram." },
+    { "id": "l09", "text": "Pour chercher, filtrez par ville, ou explorez la carte." },
+    { "id": "l10", "text": "Et tout est gratuit !" },
+    { "id": "l11", "text": "El Makane Djamil : les petites annonces en Égypte." }
+  ],
+  "bgm": { "mode": "none" }
+}
