@@ -3,98 +3,98 @@
   "id": "v1a",
   "text": "Un T3 meublé au Caire,",
   "phonemes": "œ̃ tˈe tʁwˈa møblˈe o kˈɛʁ,",
-  "dur": 1.391,
-  "peak": 0.644
+  "speed": 1.14,
+  "dur": 1.557
  },
  {
   "id": "v1b",
   "text": "à trois cent vingt euros par mois ?",
   "phonemes": "a tʁwˈa sˈɑ̃ vˈɛ̃t øʁˈo paʁ mwˈa ?",
-  "dur": 1.485,
-  "peak": 0.622
+  "speed": 1.18,
+  "dur": 1.716
  },
  {
   "id": "v2a",
-  "text": "Il est sur almakanjamil.",
-  "phonemes": "il ɛ syʁ almakandʒamˈil.",
-  "dur": 1.476,
-  "peak": 0.658
+  "text": "Il est sur almakanjamil !",
+  "phonemes": "il ɛ syʁ almakandʒamˈil !",
+  "speed": 1.14,
+  "dur": 1.543
  },
  {
   "id": "v2b",
   "text": "Filtrez par ville,",
   "phonemes": "filtʁˈe paʁ vˈil,",
-  "dur": 1.062,
-  "peak": 0.836
+  "speed": 1.14,
+  "dur": 1.135
  },
  {
   "id": "v2c",
-  "text": "et repérez chaque annonce sur la carte.",
-  "phonemes": "e ʁəpeʁˈe ʃak anˈɔ̃s syʁ la kˈaʁt.",
-  "dur": 1.885,
-  "peak": 0.539
+  "text": "et repérez chaque annonce sur la carte !",
+  "phonemes": "e ʁəpeʁˈe ʃak anˈɔ̃s syʁ la kˈaʁt !",
+  "speed": 1.14,
+  "dur": 1.945
  },
  {
   "id": "v3a",
   "text": "Photos, vidéos :",
   "phonemes": "fotˈo, videˈo :",
-  "dur": 0.932,
-  "peak": 0.804
+  "speed": 1.14,
+  "dur": 1.02
  },
  {
   "id": "v3b",
-  "text": "visitez avant même de vous déplacer.",
-  "phonemes": "vizitˈez avˌɑ̃ mˈɛm də vu deplasˈe.",
-  "dur": 1.829,
-  "peak": 0.676
+  "text": "visitez avant même de vous déplacer !",
+  "phonemes": "vizitˈez avˌɑ̃ mˈɛm də vu deplasˈe !",
+  "speed": 1.14,
+  "dur": 1.976
  },
  {
   "id": "v4a",
   "text": "Vous vendez un téléphone, une voiture ?",
   "phonemes": "vu vɑ̃dˈez œ̃ telefˈɔn, yn vwatˈyʁ ?",
-  "dur": 1.994,
-  "peak": 0.655
+  "speed": 1.14,
+  "dur": 1.935
  },
  {
   "id": "v5a",
   "text": "Collez votre message Telegram :",
   "phonemes": "kɔlˈe votʁ mɛsˈaʒ teleɡʁˈam :",
-  "dur": 1.768,
-  "peak": 0.64
+  "speed": 1.14,
+  "dur": 1.682
  },
  {
   "id": "v5b",
-  "text": "l'IA remplit l'annonce pour vous.",
-  "phonemes": "liˈa ʁɑ̃plˈi lanˈɔ̃s puʁ vˈu.",
-  "dur": 1.437,
-  "peak": 0.72
+  "text": "l'IA remplit l'annonce pour vous !",
+  "phonemes": "liˈa ʁɑ̃plˈi lanˈɔ̃s puʁ vˈu !",
+  "speed": 1.14,
+  "dur": 1.706
  },
  {
   "id": "v6a",
   "text": "Contact direct,",
   "phonemes": "kɔ̃tˈakt diʁˈɛkt,",
-  "dur": 1.087,
-  "peak": 0.637
+  "speed": 1.14,
+  "dur": 1.089
  },
  {
   "id": "v6b",
-  "text": "sur Ouatsap ou Telegram.",
-  "phonemes": "syʁ watsˈap u teleɡʁˈam.",
-  "dur": 1.41,
-  "peak": 0.626
+  "text": "sur Ouatsap ou Telegram !",
+  "phonemes": "syʁ watsˈap u teleɡʁˈam !",
+  "speed": 1.14,
+  "dur": 1.496
  },
  {
   "id": "v7a",
-  "text": "Et c'est gratuit.",
-  "phonemes": "e sɛ ɡʁatyˈi.",
-  "dur": 0.888,
-  "peak": 0.714
+  "text": "Et c'est gratuit !",
+  "phonemes": "e sɛ ɡʁatyˈi !",
+  "speed": 1.14,
+  "dur": 0.973
  },
  {
   "id": "v7b",
-  "text": "almakanjamil point com.",
-  "phonemes": "almakandʒamˈil pwˌɛ̃ kˈɔm.",
-  "dur": 1.42,
-  "peak": 0.568
+  "text": "almakanjamil point com !",
+  "phonemes": "almakandʒamˈil pwˌɛ̃ kˈɔm !",
+  "speed": 1.14,
+  "dur": 1.528
  }
 ]

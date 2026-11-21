@@ -25,4 +25,6 @@ cd ad && npx hyperframes check && npx hyperframes render -o renders/almakanjamil
 
 Les scènes s'éditent dans `ad/src/*.html` (sources) ; `ad/compositions/` est généré.
 
-Voix off : `tools/voix-off/` (Kokoro-82M, voix `ff_siwis`, vitesse 1,06, prononciations forcées en phonèmes pour almakanjamil, WhatsApp et IA). Le modèle (~325 Mo) n'est pas versionné.
+Voix off : `tools/voix-off/` — voix d'homme Kokoro-82M (timbre `pm_alex` + 22 % de prosodie française `ff_siwis`), vitesse 1,14 à 1,26, prononciations forcées en phonèmes pour almakanjamil, WhatsApp et IA. Choisie par banc d'essai : 0 erreur de transcription Whisper en français. Le modèle (~325 Mo) n'est pas versionné.
+
+Musique : `tools/musique/compose.py` — composition originale (122,45 BPM, Do–Sol–Lam–Fa), rendue avec FluidSynth + banque FluidR3_GM (licence MIT) ; libre de droits.

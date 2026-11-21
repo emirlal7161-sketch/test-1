@@ -19,8 +19,8 @@ Pistes non construites : (1) « le chaos des groupes Telegram » → almakanjami
 - Positions des cibles des taps mesurées dans le navigateur (getBoundingClientRect), pas estimées.
 - Couleurs mesurées en sRGB sur les captures (les captures Safari étaient en Display P3 : converties avant mesure).
 - Revue `snapshot --review` (temps forts, 8 coutures, planche téléphone 360 px) lue en entier ; corrections appliquées (décalage dû au zoom CSS, aperçu carte visible trop tôt, sous-titre sur le bouton « Carte », doigt masquant les libellés, inversion de mouvement carte → photos).
-- **Voix et sons mesurés, pas écoutés** (aucune écoute possible ici). Voix Kokoro-82M `ff_siwis` : poids vérifiés contre un second éditeur indépendant (même durée à l'échantillon près, spectrogrammes corrélés à 0,93) ; prononciations forcées en phonèmes : /almakandʒamˈil/, /watsˈap/, /liˈa/.
-- Pas de musique : aucune source de musique licenciée accessible depuis cet environnement.
+- **Voix et sons mesurés, pas écoutés** (aucune écoute possible ici). V2 : voix d'homme Kokoro-82M, timbre `pm_alex` + 22 % de prosodie française, F0 médiane 138 Hz, débit 1,14. Choisie parmi 18 variantes par transcription Whisper small (français) : 0 erreur sur le texte test ; voix off complète retranscrite mot pour mot (marque comprise « Al-Makan Jamil », « Al-MakanJamil.com »). Prononciations forcées : /almakandʒamˈil/, /watsˈap/, /liˈa/.
+- Musique V2 : composition originale (FluidSynth + FluidR3_GM, MIT), 122,45 BPM pour que la mesure 13 tombe sur le logotype (attaque mesurée à 23,52 s) ; égalisée pour libérer 150–500 Hz (zone de la voix) et éclaircir le haut du spectre ; atténuée automatiquement sous la voix (compression déclenchée par la voix, ratio 3) : ≈ 14 dB sous la voix pendant la parole, ≈ 8 dB dans les respirations. Mix final retranscrit par Whisper : « Almakanjamil.com » reconnu en toutes lettres ; −15,9 LUFS, crête −1,4 dBTP.
 
 ## Plan le plus faible
 

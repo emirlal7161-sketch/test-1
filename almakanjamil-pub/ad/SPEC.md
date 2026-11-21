@@ -3,8 +3,8 @@
 GOAL:    à la fin, le spectateur francophone installé (ou qui s'installe) en Égypte retient « almakanjamil.com »
          et sait qu'il y trouve un logement, vend ses objets, publie avec l'IA et contacte en direct, gratuitement.
 OUTPUT:  HyperFrames 0.9.75, 1080 × 1920, 30 fps, MP4 H.264 + AAC.
-TIME:    27,0 s × 30 = 810 frames. Pas de musique (aucune source de musique licenciée accessible) :
-         la voix off est l'horloge ; effets sonores HyperFrames (licence Pixabay) sur les actions visibles.
+TIME:    27,0 s × 30 = 810 frames. Musique originale 122,45 BPM (1 mesure = 1,96 s ; mesure 13 = logotype à 23,52 s),
+         voix off d'homme = horloge des plans ; effets sonores HyperFrames (licence Pixabay) sur les actions visibles.
 
 ## LOOK — l'app elle-même est le décor
 
@@ -61,24 +61,27 @@ TIME:    27,0 s × 30 = 810 frames. Pas de musique (aucune source de musique lic
 | S7 Contact | 554–644 | Fiche salon, rangée de boutons réels ; tap Telegram (18,85) → bulle ; tap WhatsApp Femme (19,95) → réponse | ST « Contact direct, » 18,60–19,75 ; « sur WhatsApp ou Telegram. » 19,80–21,50 | v6a 18,60 / v6b 19,80 ; clics ; pops | iris depuis WhatsApp |
 | S8 Fin | 639–809 | Iris depuis Telegram (21,30–21,56) ; « PUBLICATION GRATUITE » + « Gratuit. » (21,54–22,9) ; logotype tracé puis rempli par le bas (22,80–23,52) ; barre d'adresse « almakanjamil.com » tapée (23,40–23,97) ; « Petites annonces en Égypte » (24,25) ; rappel des 4 catégories réelles (24,55) | tenue finale 2,5 s | v7a 21,65 / v7b 23,10 ; montée + impact 23,53 | fin |
 
-## VOIX OFF (Kokoro-82M, voix ff_siwis, vitesse 1,06 ; prononciations forcées en phonèmes)
+## VOIX OFF — V2 : voix d'homme, plus posée et plus enlevée
 
-| id | début | durée | texte |
+Kokoro-82M, timbre `pm_alex` + 22 % de prosodie française (`ff_siwis`), F0 médiane 138 Hz. Débit 1,14 (1,18 à 1,26 sur trois phrases
+courtes pour tenir leur créneau). Exclamations pour l'énergie. Musique originale atténuée sous la voix (≈ −14 dB pendant la parole, ≈ −8 dB dans les respirations).
+
+| id | début | vitesse | texte |
 |---|---|---|---|
-| v1a | 0,20 | 1,39 | Un T3 meublé au Caire, |
-| v1b | 1,70 | 1,49 | à trois cent vingt euros par mois ? |
-| v2a | 3,55 | 1,48 | Il est sur almakanjamil. (/almakandʒamˈil/) |
-| v2b | 5,40 | 1,06 | Filtrez par ville, |
-| v2c | 6,95 | 1,89 | et repérez chaque annonce sur la carte. |
-| v3a | 9,20 | 0,93 | Photos, vidéos : |
-| v3b | 10,25 | 1,83 | visitez avant même de vous déplacer. |
-| v4a | 12,45 | 1,99 | Vous vendez un téléphone, une voiture ? |
-| v5a | 14,80 | 1,77 | Collez votre message Telegram : |
-| v5b | 16,70 | 1,44 | l'IA remplit l'annonce pour vous. (/liˈa/) |
-| v6a | 18,60 | 1,09 | Contact direct, |
-| v6b | 19,80 | 1,41 | sur WhatsApp ou Telegram. (/watsˈap/) |
-| v7a | 21,65 | 0,89 | Et c'est gratuit. |
-| v7b | 23,10 | 1,42 | almakanjamil point com. |
+| v1a | 0,12 | 1,14 | Un T3 meublé au Caire, |
+| v1b | 1,75 | 1,18 | à trois cent vingt euros par mois ? |
+| v2a | 3,55 | 1,14 | Il est sur almakanjamil ! (/almakandʒamˈil/) |
+| v2b | 5,40 | 1,14 | Filtrez par ville, |
+| v2c | 6,95 | 1,14 | et repérez chaque annonce sur la carte ! |
+| v3a | 9,16 | 1,14 | Photos, vidéos : |
+| v3b | 10,34 | 1,14 | visitez avant même de vous déplacer ! |
+| v4a | 12,45 | 1,14 | Vous vendez un téléphone, une voiture ? |
+| v5a | 14,80 | 1,14 | Collez votre message Telegram : |
+| v5b | 16,70 | 1,14 | l'IA remplit l'annonce pour vous ! (/liˈa/) |
+| v6a | 18,60 | 1,14 | Contact direct, |
+| v6b | 19,80 | 1,14 | sur WhatsApp ou Telegram ! (/watsˈap/) |
+| v7a | 21,65 | 1,14 | Et c'est gratuit ! |
+| v7b | 23,10 | 1,14 | almakanjamil point com ! |
 
 ## BANNED
 

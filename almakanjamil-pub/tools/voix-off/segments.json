@@ -1,58 +1,72 @@
 [
  {
   "id": "v1a",
-  "text": "Un T3 meublé au Caire,"
+  "text": "Un T3 meublé au Caire,",
+  "slot": 1.56
  },
  {
   "id": "v1b",
-  "text": "à trois cent vingt euros par mois ?"
+  "text": "à trois cent vingt euros par mois ?",
+  "slot": 1.77
  },
  {
   "id": "v2a",
-  "text": "Il est sur almakanjamil."
+  "text": "Il est sur almakanjamil !",
+  "slot": 1.77
  },
  {
   "id": "v2b",
-  "text": "Filtrez par ville,"
+  "text": "Filtrez par ville,",
+  "slot": 1.47
  },
  {
   "id": "v2c",
-  "text": "et repérez chaque annonce sur la carte."
+  "text": "et repérez chaque annonce sur la carte !",
+  "slot": 2.17
  },
  {
   "id": "v3a",
-  "text": "Photos, vidéos :"
+  "text": "Photos, vidéos :",
+  "slot": 1.1
  },
  {
   "id": "v3b",
-  "text": "visitez avant même de vous déplacer."
+  "text": "visitez avant même de vous déplacer !",
+  "slot": 2.12
  },
  {
   "id": "v4a",
-  "text": "Vous vendez un téléphone, une voiture ?"
+  "text": "Vous vendez un téléphone, une voiture ?",
+  "slot": 2.27
  },
  {
   "id": "v5a",
-  "text": "Collez votre message Telegram :"
+  "text": "Collez votre message Telegram :",
+  "slot": 1.82
  },
  {
   "id": "v5b",
-  "text": "l'IA remplit l'annonce pour vous."
+  "text": "l'IA remplit l'annonce pour vous !",
+  "slot": 1.82
  },
  {
   "id": "v6a",
-  "text": "Contact direct,"
+  "text": "Contact direct,",
+  "slot": 1.12
  },
  {
   "id": "v6b",
-  "text": "sur Ouatsap ou Telegram."
+  "text": "sur Ouatsap ou Telegram !",
+  "slot": 1.77
  },
  {
   "id": "v7a",
-  "text": "Et c'est gratuit."
+  "text": "Et c'est gratuit !",
+  "slot": 1.37
  },
  {
   "id": "v7b",
-  "text": "almakanjamil point com."
+  "text": "almakanjamil point com !",
+  "slot": 1.6
  }
 ]
