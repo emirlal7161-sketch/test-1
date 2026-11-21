@@ -1,0 +1,113 @@
+/* almakanjamil — kit d'interface reconstruit depuis les captures de l'app (valeurs sRGB mesurées).
+   Toutes les tailles sont en pt d'écran téléphone (428 pt de large) ; .app applique le zoom vidéo. */
+@font-face { font-family: "AMJ Poppins"; src: url("fonts/poppins-600-latin.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "AMJ Poppins"; src: url("fonts/poppins-700-latin.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "AMJ Poppins"; src: url("fonts/poppins-800-latin.woff2") format("woff2"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "AMJ Inter"; src: url("fonts/inter-latin-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+
+:root {
+  --amj-primary: #c84606;
+  --amj-vivid: #d74800;
+  --amj-logo: #f27528;
+  --amj-ink: #101c29;
+  --amj-ink2: #281c13;
+  --amj-grey: #675b52;
+  --amj-bg: #fcfbf9;
+  --amj-line: #e9e2db;
+  --amj-line2: #ede7e2;
+  --amj-tile: #f1f3f5;
+  --amj-pill: #dfedf9;
+  --amj-peach: #ffe9d9;
+  --amj-peach-ink: #953208;
+  --amj-display: "AMJ Poppins", sans-serif;
+  --amj-text: "AMJ Inter", sans-serif;
+}
+
+.app {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 428px;
+  zoom: var(--z, 2.5234);
+  font-family: var(--amj-text);
+  color: var(--amj-ink);
+  background: var(--amj-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+.app * { box-sizing: border-box; }
+.app svg { display: block; flex: none; }
+
+/* Icônes Lucide (stroke 2 comme dans l'app) */
+.ic { width: 20px; height: 20px; }
+.ic-sm { width: 16px; height: 16px; }
+.ic-lg { width: 24px; height: 24px; }
+
+/* En-tête */
+.hdr { height: 55px; background: #fff; position: relative; display: flex; align-items: center; justify-content: center; }
+.logo { font-family: var(--amj-display); font-weight: 600; font-size: 21.9px; letter-spacing: -0.015em; color: var(--amj-logo); line-height: 1; }
+.hdr .bell { position: absolute; right: 24px; top: 18.5px; width: 18px; height: 18px; color: var(--amj-ink2); }
+
+/* Recherche */
+.search { margin: 5px 16px 0; height: 48px; border-radius: 12px; background: var(--amj-tile); display: flex; align-items: center; padding: 0 6px 0 14px; gap: 10px; }
+.search .ic { width: 21px; height: 21px; color: var(--amj-ink); }
+.search .ph { flex: 1; font-size: 16px; color: var(--amj-grey); white-space: nowrap; overflow: hidden; }
+.search .go { width: 36px; height: 36px; border-radius: 8px; background: var(--amj-primary); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(16,28,41,.12); }
+.search .go svg { width: 18px; height: 18px; }
+
+/* Catégories */
+.cats { display: grid; grid-template-columns: repeat(5, 1fr); padding: 13px 12px 0; }
+.cat { display: flex; flex-direction: column; align-items: center; gap: 5.5px; min-width: 0; }
+.cat .tile { width: 38px; height: 38px; border-radius: 9px; background: var(--amj-tile); display: flex; align-items: center; justify-content: center; color: var(--amj-ink); }
+.cat .tile svg { width: 22px; height: 22px; }
+.cat .lb { line-height: 13px; font-size: 10.2px; font-weight: 600; color: var(--amj-ink); white-space: nowrap; letter-spacing: -0.005em; }
+
+/* Bannière commerces locaux */
+.banner { margin: 20px 16px 0; height: 147px; border-radius: 12px; overflow: hidden; display: flex; }
+.banner .l { width: 179px; background: var(--amj-vivid); color: #fcfaf8; padding: 18px 14px 0 16px; }
+.banner .eb { font-family: var(--amj-display); font-weight: 700; font-size: 9.1px; letter-spacing: 0.01em; }
+.banner h3 { margin: 8px 0 0; font-family: var(--amj-display); font-weight: 700; font-size: 20.2px; line-height: 1.12; letter-spacing: -0.01em; }
+.banner p { margin: 6px 0 0; font-size: 11px; line-height: 1.4; }
+.banner .r { flex: 1; background-size: cover; background-position: center; }
+
+/* Titres de section */
+.sec { display: flex; align-items: baseline; justify-content: space-between; padding: 0 16px; }
+.sec h2 { margin: 0; font-family: var(--amj-display); font-weight: 800; font-size: 21.7px; letter-spacing: -0.02em; color: var(--amj-ink); }
+.sec .more { font-size: 12px; font-weight: 500; color: var(--amj-primary); display: flex; align-items: center; gap: 8px; }
+.sec .more svg { width: 16px; height: 16px; }
+
+/* Filtre localisation */
+.loc { display: flex; align-items: center; gap: 10px; padding: 0 16px; }
+.loc .pin { width: 21px; height: 21px; color: var(--amj-ink); }
+.select { height: 37px; border-radius: 8px; background: var(--amj-pill); display: flex; align-items: center; justify-content: space-between; padding: 0 11px 0 10px; font-size: 16px; color: var(--amj-ink); width: 170px; }
+.select .chev { width: 16px; height: 16px; color: #3478f6; }
+.btn-apply { height: 33px; padding: 0 12px; border-radius: 7px; background: var(--amj-peach); color: var(--amj-peach-ink); font-size: 12.1px; font-weight: 500; display: flex; align-items: center; box-shadow: 0 1px 3px rgba(40,28,19,.10); }
+
+/* Grille d'annonces */
+.grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 26px; padding: 0 16px; }
+.gcard .media { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #ddd; }
+.gcard .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.heart { position: absolute; right: 8px; top: 8px; width: 35px; height: 35px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: var(--amj-ink); box-shadow: 0 1px 3px rgba(16,28,41,.12); }
+.heart svg { width: 18px; height: 18px; }
+.pager { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); height: 13px; padding: 0 5px; border-radius: 7px; background: rgba(27,16,10,.78); display: flex; align-items: center; gap: 3px; }
+.pager i { width: 4px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.75); display: block; }
+.pager i.on { width: 11px; background: #fff; }
+.vbadge { position: absolute; left: 8px; top: 8px; height: 19px; padding: 0 7px 0 5px; border-radius: 6px; background: rgba(27,11,4,.78); color: #fff; font-size: 11.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+.vbadge svg { width: 12px; height: 12px; }
+.gcard .price { margin-top: 9px; font-family: var(--amj-display); font-weight: 800; font-size: 17.5px; letter-spacing: -0.01em; color: var(--amj-ink); }
+.gcard .ttl { margin-top: 1px; font-family: var(--amj-display); font-weight: 700; font-size: 15.5px; line-height: 1.25; letter-spacing: -0.005em; color: var(--amj-ink); }
+.gcard .cat2 { margin-top: 4px; font-size: 13.5px; color: var(--amj-ink); }
+.gcard .pills { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 6px; }
+.gcard .where { margin-top: 8px; font-size: 13.5px; display: flex; align-items: center; gap: 6px; color: var(--amj-ink); }
+.gcard .where svg { width: 15px; height: 15px; }
+.gcard .when { margin-top: 6px; font-size: 11.5px; color: var(--amj-grey); }
+.pill { height: 24px; padding: 0 8px 0 7px; border-radius: 6px; background: var(--amj-pill); color: var(--amj-ink); font-size: 12.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.pill svg { width: 14px; height: 14px; color: var(--amj-primary); }
+
+/* Navigation basse */
+.nav { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: #fff; border-top: 1px solid var(--amj-line); display: flex; justify-content: space-around; padding-top: 9px; }
+.nav .it { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11.5px; font-weight: 600; color: var(--amj-ink2); width: 80px; }
+.nav .it svg { width: 22px; height: 22px; }
+.nav .it.on { color: var(--amj-primary); }
+.nav .plus { color: var(--amj-primary); }

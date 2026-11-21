@@ -1,0 +1,136 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #e4-cam { position: absolute; inset: 0; }
+    #e4-ttl .w { opacity: 0; }
+    #e4-scr { top: 470px; }
+    .f-body { padding: 18px 16px 0; color: #281c13; }
+    .f-eb { font-family: var(--amj-display); font-weight: 700; font-size: 12.5px; line-height: 17px; color: #c84606; letter-spacing: 0.01em; }
+    .f-h1 { margin-top: 6px; font-family: var(--amj-display); font-weight: 800; font-size: 24px; line-height: 32px; letter-spacing: -0.02em; }
+    .f-tog { margin-top: 14px; display: flex; gap: 10px; }
+    .tbtn { height: 35.5px; border-radius: 7px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 500; border: 1px solid transparent; }
+    .tbtn svg { width: 18px; height: 18px; }
+    #e4-hand { width: 92px; background: #c84606; color: #fff; border-color: #c84606; }
+    #e4-ai { width: 114px; background: #fff; color: #281c13; border-color: #e9e2db; }
+    #e4-panel { margin-top: 14px; background: #fff; border: 1px solid #e9e2db; border-radius: 10px; padding: 12px; opacity: 0; }
+    .p-lb { font-size: 14px; font-weight: 600; line-height: 17px; }
+    .p-ta { margin-top: 8px; height: 62px; border: 1px solid #e9e2db; border-radius: 8px; padding: 8px 10px; font-size: 14px; line-height: 19px; color: #101c29; }
+    .p-ta span { opacity: 0; }
+    #e4-fill { margin-top: 10px; height: 34px; border-radius: 7px; background: #c84606; color: #fff; font-size: 14.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    #e4-fill svg { width: 17px; height: 17px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; margin-top: 14px; }
+    .f-row.one { grid-template-columns: 1fr; }
+    #e4-fields { margin-top: 16px; }
+    #e4-fields .f-row:first-child { margin-top: 0; }
+    .f-lb { font-size: 15px; font-weight: 600; line-height: 20px; white-space: nowrap; }
+    .f-lb b { color: #c84606; font-weight: 600; }
+    .f-box { position: relative; margin-top: 6px; background: #fff; border: 1px solid #e9e2db; display: flex; align-items: center; justify-content: space-between; color: #101c29; overflow: hidden; }
+    .f-box.sel { height: 25.5px; border-radius: 6px; padding: 0 7px 0 9px; font-size: 14.5px; }
+    .f-box.inp { height: 40.8px; border-radius: 8px; padding: 0 12px; font-size: 16px; }
+    .f-box svg { width: 14px; height: 14px; }
+    .f-box .ph { position: absolute; left: 9px; }
+    .f-box .val { white-space: nowrap; clip-path: inset(0 100% 0 0); }
+    #e4-ph-lb { margin-top: 18px; }
+    #e4-slot { position: relative; margin-top: 8px; height: 100px; border: 1.5px dashed #d9cfc6; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 500; color: #675b52; overflow: hidden; }
+    #e4-slot svg { width: 20px; height: 20px; color: #c84606; }
+    #e4-photo { position: absolute; left: 8px; top: 8px; width: 120px; height: 84px; border-radius: 8px; object-fit: cover; opacity: 0; }
+    #e4-pub { margin-top: 16px; height: 44px; border-radius: 8px; background: #c84606; color: #fff; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    #e4-toast { position: absolute; left: 50%; top: 66px; margin-left: -150px; width: 300px; height: 40px; border-radius: 20px; background: #281c13; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14.5px; font-weight: 600; opacity: 0; box-shadow: 0 8px 20px rgba(40, 28, 19, 0.3); }
+    #e4-toast svg { width: 18px; height: 18px; color: #ffb68a; }
+  </style>
+  <div id="root" data-composition-id="e4" data-width="1080" data-height="1920">
+    <div id="e4-cam">
+      <div class="x-ttl on-cream" id="e4-ttl"><span class="w">Publiez</span> <span class="w">avec</span> <span class="w acc">l’IA</span></div>
+      <div class="x-screen on-cream" id="e4-scr">
+        <div class="app">
+          <div class="hdr" style="position: relative; z-index: 2" data-layout-allow-occlusion><div class="logo">elmakanjamil</div><i data-i="bell" class="bell"></i></div>
+          <div id="e4-scroll">
+            <div class="f-body">
+              <div class="f-eb">PUBLICATION GRATUITE</div>
+              <div class="f-h1">Déposer une annonce</div>
+              <div class="f-tog"><div class="tbtn" id="e4-hand">À la main</div><div class="tbtn" id="e4-ai"><i data-i="sparkles"></i>Avec l’IA</div></div>
+              <div id="e4-panel">
+                <div class="p-lb">Décrivez votre article</div>
+                <div class="p-ta" id="e4-typed">Canapé d’angle gris, très bon état, 4 500 EGP, Nasr City</div>
+                <div id="e4-fill"><i data-i="sparkles" class="spk"></i>Remplir avec l’IA</div>
+              </div>
+              <div id="e4-fields">
+                <div class="f-row">
+                  <div><div class="f-lb">Rubrique</div><div class="f-box sel" id="e4-b1"><span class="ph">Choisir</span><span class="val">Achat &amp; Vente</span><i data-i="chevrons-up-down"></i></div></div>
+                  <div><div class="f-lb">Catégorie <b>*</b></div><div class="f-box sel" id="e4-b2"><span class="ph">Choisir</span><span class="val">Meubles</span><i data-i="chevrons-up-down"></i></div></div>
+                </div>
+                <div class="f-row one"><div><div class="f-lb">Titre <b>*</b></div><div class="f-box inp" id="e4-b3"><span class="ph"></span><span class="val">Canapé d’angle gris</span></div></div></div>
+                <div class="f-row one"><div><div class="f-lb">Prix <b>*</b></div><div class="f-box inp" id="e4-b4"><span class="ph"></span><span class="val">4 500 EGP</span></div></div></div>
+                <div class="f-row">
+                  <div><div class="f-lb">Ville <b>*</b></div><div class="f-box sel" id="e4-b5"><span class="ph">Choisir</span><span class="val">Le Caire</span><i data-i="chevrons-up-down"></i></div></div>
+                  <div><div class="f-lb">Quartier (facultatif)</div><div class="f-box sel" id="e4-b6"><span class="ph">Non renseigné</span><span class="val">Nasr City</span><i data-i="chevrons-up-down"></i></div></div>
+                </div>
+              </div>
+              <div class="f-lb" id="e4-ph-lb">Photos</div>
+              <div id="e4-slot"><i data-i="camera"></i>Ajouter des photos<img id="e4-photo" src="assets/img/canape-angle.jpg" alt="Canapé d'angle gris" /></div>
+              <div id="e4-pub">Publier mon annonce</div>
+            </div>
+          </div>
+          <div id="e4-toast"><i data-i="circle-check"></i>Votre annonce est en ligne !</div>
+        </div>
+      </div>
+    </div>
+    <div class="finger" id="e4-finger"></div>
+    <div class="x-wipe g-orange" id="e4-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      // Découpe le texte décrit en lettres (fait une fois, déterministe) pour l'effet de frappe.
+      var ta = document.getElementById("e4-typed");
+      if (ta && !ta.dataset.split) {
+        var txt = ta.textContent; ta.textContent = "";
+        for (var i = 0; i < txt.length; i++) { var s = document.createElement("span"); s.textContent = txt[i]; ta.appendChild(s); }
+        ta.dataset.split = "1";
+      }
+      var tl = gsap.timeline({ paused: true });
+      var f = "#e4-finger";
+      tl.set("#e4-wipe", { x: 1080 }, 0);
+      tl.fromTo("#e4-scr", { y: 600, filter: "blur(14px)" }, { y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0);
+      amj.wordsIn(tl, gsap.utils.toArray("#e4-ttl .w"), 0.08, 0.1, 0.16);
+      // Bascule « Avec l'IA ».
+      amj.fingerIn(tl, f, 0.12, 458, 806, 1000, 1500);
+      amj.press(tl, f, 0.5);
+      tl.to("#e4-ai", { backgroundColor: "#c84606", color: "#ffffff", borderColor: "#c84606", duration: 0.12 }, 0.52);
+      tl.to("#e4-hand", { backgroundColor: "#ffffff", color: "#281c13", borderColor: "#e9e2db", duration: 0.12 }, 0.52);
+      tl.fromTo("#e4-panel", { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0.55);
+      tl.to(f, { x: 975, y: 1060, duration: 0.3, ease: "power2.inOut" }, 0.62);
+      // « décrivez votre article » : frappe lettre à lettre.
+      gsap.utils.toArray("#e4-typed span").forEach(function (s, i) { tl.set(s, { opacity: 1 }, 0.62 + i * 0.021); });
+      // « l'IA remplit l'annonce pour vous ».
+      amj.moveTo(tl, f, 1.86, 542, 1142, 0.22);
+      amj.press(tl, f, 2.15);
+      tl.to("#e4-fill", { scale: 0.96, duration: 0.06, ease: "power2.in" }, 2.09);
+      tl.to("#e4-fill", { scale: 1, duration: 0.12, ease: "power2.out" }, 2.15);
+      tl.fromTo("#e4-fill .spk", { rotation: 0 }, { rotation: 180, duration: 0.6, ease: "power2.inOut" }, 2.15);
+      tl.to(f, { x: 960, y: 1300, opacity: 0, duration: 0.25, ease: "power2.in" }, 2.22);
+      tl.to("#e4-scroll", { y: -190, duration: 0.4, ease: "power2.inOut" }, 2.2);
+      [["#e4-b1", 2.45], ["#e4-b2", 2.6], ["#e4-b3", 2.8], ["#e4-b4", 3.0], ["#e4-b5", 3.2], ["#e4-b6", 3.32]].forEach(function (it) {
+        tl.to(it[0] + " .ph", { opacity: 0, duration: 0.06 }, it[1] - 0.06);
+        tl.fromTo(it[0] + " .val", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.22, ease: "none" }, it[1]);
+        tl.fromTo(it[0], { backgroundColor: "#ffe9d9", borderColor: "#c84606" }, { backgroundColor: "#ffffff", borderColor: "#e9e2db", duration: 0.6, ease: "power2.out", immediateRender: false }, it[1]);
+      });
+      // « Une photo, un clic : c'est en ligne ! »
+      tl.to("#e4-scroll", { y: -420, duration: 0.35, ease: "power2.inOut" }, 3.6);
+      tl.fromTo("#e4-photo", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }, 3.95);
+      tl.set(f, { x: 1000, y: 1600 }, 4.0);
+      amj.fingerIn(tl, f, 4.08, 542, 1328, 1000, 1700);
+      amj.press(tl, f, 4.55);
+      tl.to("#e4-pub", { scale: 0.97, backgroundColor: "#a93b05", duration: 0.06 }, 4.49);
+      tl.to("#e4-pub", { scale: 1, backgroundColor: "#c84606", duration: 0.14 }, 4.55);
+      tl.to(f, { opacity: 0, duration: 0.15 }, 4.7);
+      tl.fromTo("#e4-toast", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.28, ease: "back.out(1.6)" }, 4.82);
+      // Volet orange vers « ce qui se passe ensuite ».
+      tl.to("#e4-wipe", { x: 0, duration: 0.2667, ease: "power3.in" }, 5.5333);
+      tl.to("#e4-cam", { x: -300, filter: "blur(10px)", duration: 0.2667, ease: "power3.in" }, 5.5333);
+      window.__timelines["e4"] = tl;
+    })();
+  </script>
+</template>

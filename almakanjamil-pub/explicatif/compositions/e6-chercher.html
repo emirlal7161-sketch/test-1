@@ -1,0 +1,74 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #e6-cam { position: absolute; inset: 0; }
+    #e6-ttl .w { opacity: 0; }
+    #e6-scr { top: 540px; }
+    .e6-win { position: relative; height: 37px; overflow: hidden; flex: 1; }
+    .e6-stack { position: absolute; left: 0; top: 0; width: 100%; }
+    .e6-stack div { height: 37px; line-height: 37px; white-space: nowrap; }
+    #e6-map { position: absolute; left: 0; top: 116px; width: 900px; height: 1404px; overflow: hidden; clip-path: circle(0px at 564px 181px); }
+    #e6-map img { position: absolute; left: -150px; top: -300px; width: 1200px; height: 2100px; }
+    .mk { position: absolute; width: 0; height: 0; }
+    .mk-in { position: absolute; left: 0; top: 0; transform: translate(-50%, -100%); padding-bottom: 16px; }
+    .mk-box { white-space: nowrap; height: 72px; padding: 0 24px; border-radius: 36px; background: #fff; color: #101c29; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 36px; line-height: 72px; box-shadow: 0 8px 20px rgba(40, 28, 19, 0.22); }
+    .mk-tip { position: absolute; left: 50%; bottom: 4px; width: 22px; height: 22px; margin-left: -11px; background: #fff; transform: rotate(45deg); border-radius: 3px; }
+  </style>
+  <div id="root" data-composition-id="e6" data-width="1080" data-height="1920">
+    <div id="e6-cam">
+      <div class="x-ttl on-cream" id="e6-ttl"><span class="w">Trouvez</span><br /><span class="w acc">près de chez vous</span></div>
+      <div class="x-screen on-cream" id="e6-scr">
+        <div class="app">
+          <div class="hdr"><div class="logo">elmakanjamil</div><svg class="lucide lucide-bell bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0" /> <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg></div>
+          <div class="search"><svg class="lucide lucide-search ic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg><div class="ph">Rechercher sur almakanjamil</div><div class="go"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></svg></div></div>
+          <div class="loc" style="margin-top: 14px"><svg class="lucide lucide-map-pin pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><div class="select" style="width: 170px"><div class="e6-win"><div class="e6-stack" id="e6-stack"><div>Toute l’Égypte</div><div>Alexandrie</div><div>Gizeh</div><div>Le Caire</div></div></div><svg class="lucide lucide-chevron-down chev" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></div><div class="btn-apply" id="e6-apply">Appliquer</div></div>
+          <div class="grid" id="e6-grid" style="margin-top: 14px">
+            <div class="gcard"><div class="media"><img src="assets/img/chambre-toub-ramli@hd.jpg" alt="Chambre meublée au Caire" /><div class="heart"><svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div></div><div class="price">320 € / mois</div><div class="ttl">Appartement T3 meublé</div></div>
+            <div class="gcard"><div class="media"><img src="assets/img/canape-angle.jpg" alt="Canapé d'angle gris" /><div class="heart"><svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div></div><div class="price">4 500 EGP</div><div class="ttl">Canapé d’angle gris</div></div>
+          </div>
+        </div>
+        <div id="e6-map" data-layout-allow-occlusion>
+          <img src="assets/img/carte-illustrative.svg" alt="Fond de plan illustratif" />
+          <div class="mk" id="e6-m1" style="left: 250px; top: 420px"><div class="mk-in"><div class="mk-box">320 €</div><div class="mk-tip"></div></div></div>
+          <div class="mk" id="e6-m2" style="left: 640px; top: 360px"><div class="mk-in"><div class="mk-box">16 000 EGP</div><div class="mk-tip"></div></div></div>
+          <div class="mk" id="e6-m3" style="left: 520px; top: 640px"><div class="mk-in"><div class="mk-box" id="e6-m3-box">4 500 EGP</div><div class="mk-tip" id="e6-m3-tip"></div></div></div>
+          <div class="mk" id="e6-m4" style="left: 230px; top: 820px"><div class="mk-in"><div class="mk-box">310 €</div><div class="mk-tip"></div></div></div>
+          <div class="mk" id="e6-m5" style="left: 700px; top: 900px"><div class="mk-in"><div class="mk-box">39 000 EGP</div><div class="mk-tip"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="finger" id="e6-finger"></div>
+    <div class="x-wipe g-orange" id="e6-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#e6-finger";
+      tl.set("#e6-wipe", { x: 1080 }, 0);
+      tl.fromTo("#e6-scr", { y: 600, filter: "blur(14px)" }, { y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0);
+      amj.wordsIn(tl, gsap.utils.toArray("#e6-ttl .w"), 0.08, 0.14, 0.16);
+      // « filtrez par ville » : Toute l'Égypte -> Le Caire, puis Appliquer.
+      amj.fingerIn(tl, f, 0.3, 370, 837, 1000, 1600);
+      amj.press(tl, f, 0.7);
+      tl.to("#e6-stack", { y: -37, duration: 0.07, ease: "power2.inOut" }, 0.73);
+      tl.to("#e6-stack", { y: -74, duration: 0.07, ease: "power2.inOut" }, 0.81);
+      tl.to("#e6-stack", { y: -111, duration: 0.12, ease: "power3.out" }, 0.89);
+      amj.moveTo(tl, f, 0.98, 654, 837, 0.1);
+      amj.press(tl, f, 1.12);
+      tl.to(f, { opacity: 0, duration: 0.12 }, 1.22);
+      // « ou explorez la carte » : la carte s'ouvre depuis le bouton Appliquer.
+      tl.to("#e6-map", { clipPath: "circle(1700px at 564px 181px)", duration: 0.35, ease: "power2.in" }, 1.25);
+      ["#e6-m1", "#e6-m2", "#e6-m3", "#e6-m4", "#e6-m5"].forEach(function (m, i) {
+        tl.fromTo(m, { scale: 0.55, opacity: 0, y: 14 }, { scale: 1, opacity: 1, y: 0, duration: 0.28, ease: "back.out(1.4)" }, 1.55 + i * 0.08);
+      });
+      tl.to(["#e6-m3-box", "#e6-m3-tip"], { backgroundColor: "#c84606", color: "#ffffff", duration: 0.12 }, 2.2);
+      tl.to("#e6-m3", { scale: 1.12, duration: 0.22, ease: "power3.out" }, 2.2);
+      tl.to("#e6-wipe", { x: 0, duration: 0.2667, ease: "power3.in" }, 2.5333);
+      tl.to("#e6-cam", { x: -300, filter: "blur(10px)", duration: 0.2667, ease: "power3.in" }, 2.5333);
+      window.__timelines["e6"] = tl;
+    })();
+  </script>
+</template>

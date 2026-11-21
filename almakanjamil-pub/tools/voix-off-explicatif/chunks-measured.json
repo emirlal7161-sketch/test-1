@@ -1,0 +1,79 @@
+[
+ {
+  "id": "l01",
+  "text": "Vous vivez en Égypte ?",
+  "phonemes": "vu vivˈez ɑ̃n eʒˈipt ?",
+  "speed": 1.14,
+  "dur": 1.348
+ },
+ {
+  "id": "l02",
+  "text": "Voici elmakanjamil : les petites annonces entre francophones !",
+  "phonemes": "vwasˌi ɛlmakandʒamˈil : le pətˈitz anˈɔ̃s ɑ̃tʁ fʁɑ̃kofˈon !",
+  "speed": 1.14,
+  "dur": 3.148
+ },
+ {
+  "id": "l03",
+  "text": "Un logement, un meuble, une voiture ? Achetez, vendez, louez, près de chez vous.",
+  "phonemes": "œ̃ loʒmˈɑ̃, œ̃ mˈœbl, yn vwatˈyʁ ? aʃtˈe, vɑ̃dˈe, lwˈe, pʁɛ də ʃe vˈu.",
+  "speed": 1.14,
+  "dur": 3.155
+ },
+ {
+  "id": "l04",
+  "text": "Inscription en un clic, avec Google.",
+  "phonemes": "ɛ̃skʁipsjˈɔ̃ ɑ̃n œ̃ klˈik, avˌɛk ɡˈuɡœl.",
+  "speed": 1.14,
+  "dur": 1.882
+ },
+ {
+  "id": "l05",
+  "text": "Pour vendre, décrivez votre article :",
+  "phonemes": "puʁ vˈɑ̃dʁ, dekʁivˈe votʁ aʁtˈikl :",
+  "speed": 1.14,
+  "dur": 1.843
+ },
+ {
+  "id": "l06",
+  "text": "l'IA remplit l'annonce pour vous.",
+  "phonemes": "liˈa ʁɑ̃plˈi lanˈɔ̃s puʁ vˈu.",
+  "speed": 1.14,
+  "dur": 1.613
+ },
+ {
+  "id": "l07",
+  "text": "Une photo, un clic : c'est en ligne !",
+  "phonemes": "yn fotˈo, œ̃ klˈik : sɛt ɑ̃ lˈiɲ !",
+  "speed": 1.14,
+  "dur": 1.664
+ },
+ {
+  "id": "l08",
+  "text": "Les acheteurs vous contactent en direct, sur Ouatsap ou Telegram.",
+  "phonemes": "lez aʃtˈœʁ vu kɔ̃tˈakt ɑ̃ diʁˈɛkt, syʁ watsˈap u teleɡʁˈam.",
+  "speed": 1.14,
+  "dur": 3.071
+ },
+ {
+  "id": "l09",
+  "text": "Pour chercher, filtrez par ville, ou explorez la carte.",
+  "phonemes": "puʁ ʃɛʁʃˈe, filtʁˈe paʁ vˈil, u ɛksploʁˈe la kˈaʁt.",
+  "speed": 1.14,
+  "dur": 2.5
+ },
+ {
+  "id": "l10",
+  "text": "Et tout est gratuit !",
+  "phonemes": "e tut ɛ ɡʁatyˈi !",
+  "speed": 1.14,
+  "dur": 1.071
+ },
+ {
+  "id": "l11",
+  "text": "elmakanjamil : les petites annonces en Égypte.",
+  "phonemes": "ɛlmakandʒamˈil : le pətˈitz anˈɔ̃s ɑ̃n eʒˈipt.",
+  "speed": 1.14,
+  "dur": 2.5
+ }
+]

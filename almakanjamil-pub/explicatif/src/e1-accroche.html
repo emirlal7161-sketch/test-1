@@ -1,0 +1,53 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #d74800; }
+    #e1-photo { position: absolute; left: 90px; top: 300px; width: 900px; height: 600px; border-radius: 48px; overflow: hidden; box-shadow: 0 40px 80px rgba(70, 22, 0, 0.3); }
+    #e1-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    #e1-q { position: absolute; left: 40px; width: 1000px; top: 960px; text-align: center; color: #fff; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 128px; line-height: 1.04; letter-spacing: -0.035em; }
+    #e1-brand { position: absolute; inset: 0; }
+    .e1-logo { position: absolute; left: 0; top: 590px; width: 1080px; text-align: center; font-family: "AMJ Poppins", sans-serif; font-weight: 600; font-size: 128px; line-height: 1.25; letter-spacing: -0.015em; white-space: nowrap; }
+    #e1-logo-o { color: transparent; -webkit-text-stroke: 3px #f27528; }
+    #e1-logo-o span { display: inline-block; }
+    #e1-logo-f { color: #f27528; clip-path: inset(100% 0 0 0); }
+    #e1-tag { position: absolute; left: 40px; width: 1000px; top: 800px; text-align: center; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 74px; line-height: 1.08; letter-spacing: -0.025em; color: #101c29; }
+    #e1-tag .w { display: inline-block; opacity: 0; }
+    #e1-tag .acc { color: #c84606; }
+    #e1-aud { position: absolute; left: 0; top: 1030px; width: 1080px; display: flex; justify-content: center; gap: 18px; }
+    #e1-aud .x-chip { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="e1" data-width="1080" data-height="1920">
+    <div id="e1-photo"><img id="e1-img" src="assets/img/banniere-caire.jpg" alt="Le Caire au coucher du soleil" /></div>
+    <div id="e1-q">Vous vivez<br />en Égypte ?</div>
+    <div class="x-wipe g-cream" id="e1-wipe"></div>
+    <div id="e1-brand" style="z-index: 70">
+      <div class="e1-logo" id="e1-logo-o"><span>e</span><span>l</span><span>m</span><span>a</span><span>k</span><span>a</span><span>n</span><span>j</span><span>a</span><span>m</span><span>i</span><span>l</span></div>
+      <div class="e1-logo" id="e1-logo-f">elmakanjamil</div>
+      <div id="e1-tag"><span class="w">Les</span> <span class="w">petites</span> <span class="w">annonces</span><br /><span class="w">entre</span> <span class="w acc">francophones</span></div>
+      <div id="e1-aud"><span class="x-chip"><i data-i="plane"></i>Expatriés</span><span class="x-chip"><i data-i="graduation-cap"></i>Étudiants</span><span class="x-chip"><i data-i="users"></i>Familles</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      tl.fromTo("#e1-img", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.08, duration: 1.8, ease: "none" }, 0);
+      // « Voici elmakanjamil » : un volet crème monte et le logotype exact se trace puis se remplit.
+      tl.fromTo("#e1-wipe", { y: 1920 }, { y: 0, duration: 0.32, ease: "power3.inOut" }, 1.5);
+      tl.to(["#e1-photo", "#e1-q"], { y: -260, filter: "blur(10px)", duration: 0.32, ease: "power3.in" }, 1.5);
+      tl.set(["#e1-photo", "#e1-q"], { opacity: 0 }, 1.84);
+      gsap.utils.toArray("#e1-logo-o span").forEach(function (s, i) {
+        tl.fromTo(s, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" }, 1.85 + i * 0.035);
+      });
+      tl.fromTo("#e1-logo-f", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.28, ease: "power2.inOut" }, 2.2);
+      tl.to("#e1-logo-o", { opacity: 0, duration: 0.1 }, 2.48);
+      amj.wordsIn(tl, gsap.utils.toArray("#e1-tag .w"), 2.95, 0.09, 0.18);
+      gsap.utils.toArray("#e1-aud .x-chip").forEach(function (c, i) {
+        tl.fromTo(c, { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.4)" }, 3.9 + i * 0.1);
+      });
+      tl.to("#e1-brand", { y: -700, filter: "blur(16px)", duration: 0.18, ease: "power3.in" }, 4.82);
+      window.__timelines["e1"] = tl;
+    })();
+  </script>
+</template>

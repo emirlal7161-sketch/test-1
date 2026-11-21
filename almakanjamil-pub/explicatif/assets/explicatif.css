@@ -1,0 +1,39 @@
+/* Pub explicative elmakanjamil — styles communs (motion design aux couleurs de l'app). */
+.x-root { position: absolute; inset: 0; overflow: hidden; }
+.g-orange { background: #d74800; }
+.g-cream { background: #fcfbf9; }
+.x-layer { position: absolute; inset: 0; }
+
+/* Titres de chapitre */
+.x-ttl { position: absolute; left: 50px; width: 980px; top: 292px; text-align: center; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 92px; line-height: 1.04; letter-spacing: -0.03em; }
+.x-ttl.on-orange { color: #ffffff; }
+.x-ttl.on-cream { color: #101c29; }
+.x-ttl .w { display: inline-block; }
+.x-ttl .acc { color: #c84606; }
+.x-ttl.on-orange .acc { color: #ffd3b5; }
+
+/* Écran d'app flottant (pas de coque de téléphone) */
+.x-screen { position: absolute; left: 90px; top: 560px; width: 900px; height: 1520px; border-radius: 56px; background: #fcfbf9; overflow: hidden; box-shadow: 0 44px 90px rgba(70, 22, 0, 0.32); }
+.x-screen.on-cream { box-shadow: 0 30px 70px rgba(40, 28, 19, 0.16); border: 2px solid #ede7e2; }
+.x-screen .app { --z: 2.1028; }
+
+/* Doigt */
+.finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.95); border: 2px solid rgba(40, 28, 19, 0.16); box-shadow: 0 10px 26px rgba(40, 28, 19, 0.3); opacity: 0; z-index: 50; }
+
+/* Volets de transition */
+.x-wipe { position: absolute; inset: 0; z-index: 60; }
+
+/* Carte d'annonce « motion » */
+.x-card { position: absolute; background: #fff; border-radius: 40px; box-shadow: 0 26px 60px rgba(40, 28, 19, 0.18); overflow: hidden; color: #101c29; }
+.x-card .ph { width: 100%; object-fit: cover; display: block; }
+.x-card .tx { padding: 22px 30px 28px; }
+.x-card .pr { font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.015em; line-height: 1.1; }
+.x-card .nm { margin-top: 4px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 38px; line-height: 1.2; }
+.x-chip { display: inline-flex; align-items: center; gap: 12px; height: 64px; padding: 0 24px 0 20px; border-radius: 16px; background: #dfedf9; font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 32px; color: #101c29; white-space: nowrap; }
+.x-chip svg { width: 36px; height: 36px; color: #c84606; }
+
+/* Bulles de message */
+.x-bub { position: absolute; padding: 24px 32px 28px; border-radius: 40px; background: #fff; box-shadow: 0 22px 50px rgba(40, 28, 19, 0.22); font-family: "AMJ Inter", sans-serif; color: #101c29; opacity: 0; }
+.x-bub .h { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 29px; color: #675b52; }
+.x-bub .h svg { width: 34px; height: 34px; color: #c84606; }
+.x-bub .m { margin-top: 8px; font-weight: 500; font-size: 38px; line-height: 1.28; }

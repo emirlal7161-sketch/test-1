@@ -1,0 +1,58 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #e2-cam { position: absolute; inset: 0; }
+    #e2-verbs { font-size: 72px; white-space: nowrap; }
+    #e2-verbs .w { opacity: 0; }
+    #e2-verbs .dot { color: #c84606; }
+    .e2-card { width: 470px; }
+    .e2-card .ph { height: 330px; }
+    .e2-card .cat { display: flex; align-items: center; gap: 14px; }
+    .e2-card .cat svg { width: 44px; height: 44px; color: #c84606; }
+    .e2-card .x-chip { margin-top: 16px; }
+    #e2-car-ph { height: 330px; background: #ffe9d9; display: flex; align-items: center; justify-content: center; color: #c84606; }
+    #e2-car-ph svg { width: 220px; height: 220px; stroke-width: 1.6; }
+    #e2-near { position: absolute; left: 0; top: 384px; width: 1080px; display: flex; justify-content: center; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 42px; color: #675b52; opacity: 0; }
+    #e2-near svg { width: 52px; height: 52px; color: #c84606; }
+  </style>
+  <div id="root" data-composition-id="e2" data-width="1080" data-height="1920">
+    <div id="e2-cam">
+      <div class="x-ttl on-cream" id="e2-verbs"><span class="w">Achetez</span> <span class="w dot">·</span> <span class="w">Vendez</span> <span class="w dot">·</span> <span class="w">Louez</span></div>
+      <div class="x-card e2-card" id="e2-a" style="left: 64px; top: 470px">
+        <img class="ph" src="assets/img/chambre-toub-ramli@hd.jpg" alt="Chambre d'un appartement meublé au Caire" />
+        <div class="tx"><div class="nm cat"><i data-i="house"></i>Logements</div><span class="x-chip"><i data-i="tag"></i>320 € / mois</span></div>
+      </div>
+      <div class="x-card e2-card" id="e2-b" style="left: 546px; top: 560px">
+        <img class="ph" src="assets/img/canape-angle.jpg" alt="Canapé d'angle gris" />
+        <div class="tx"><div class="nm cat"><i data-i="sofa"></i>Meubles</div><span class="x-chip"><i data-i="tag"></i>4 500 EGP</span></div>
+      </div>
+      <div class="x-card e2-card" id="e2-c" style="left: 305px; top: 1150px">
+        <div id="e2-car-ph"><i data-i="car-front"></i></div>
+        <div class="tx"><div class="nm cat"><i data-i="car-front"></i>Véhicules</div><span class="x-chip"><i data-i="washing-machine"></i>Électroménager…</span></div>
+      </div>
+      <div id="e2-near"><i data-i="map-pin"></i>près de chez vous</div>
+    </div>
+    <div class="x-wipe g-orange" id="e2-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      tl.set("#e2-wipe", { x: 1080 }, 0);
+      tl.fromTo("#e2-cam", { y: 500, filter: "blur(14px)" }, { y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0);
+      // Une annonce par mot : « un logement », « un meuble », « une voiture ».
+      [["#e2-a", 0.02, -4], ["#e2-b", 0.62, 3.5], ["#e2-c", 1.2, -2]].forEach(function (c) {
+        tl.fromTo(c[0], { opacity: 0, y: 140, scale: 0.7, rotation: c[2] * 3, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, rotation: c[2], filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, c[1]);
+      });
+      // « Achetez, vendez, louez ».
+      amj.wordsIn(tl, gsap.utils.toArray("#e2-verbs .w"), 1.95, 0.17, 0.16);
+      tl.fromTo("#e2-near", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 2.55);
+      // Volet orange vers l'inscription.
+      tl.to("#e2-wipe", { x: 0, duration: 0.2967, ease: "power3.in" }, 3.17);
+      tl.to("#e2-cam", { x: -300, filter: "blur(10px)", duration: 0.2967, ease: "power3.in" }, 3.17);
+      window.__timelines["e2"] = tl;
+    })();
+  </script>
+</template>

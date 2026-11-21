@@ -1,0 +1,66 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #d74800; }
+    #e3-cam { position: absolute; inset: 0; }
+    #e3-ttl .w { opacity: 0; }
+    #e3-scr { top: 520px; }
+    .lg-body { padding: 26px 16px 0; color: #281c13; }
+    .lg-eb { font-family: var(--amj-display); font-weight: 700; font-size: 12.5px; line-height: 17px; color: #c84606; letter-spacing: 0.01em; }
+    .lg-h1 { margin-top: 6px; font-family: var(--amj-display); font-weight: 800; font-size: 24px; line-height: 32px; letter-spacing: -0.02em; }
+    .lg-lb { margin-top: 16px; font-size: 14.5px; font-weight: 600; line-height: 18px; }
+    .lg-in { margin-top: 7px; height: 40px; background: #fff; border: 1px solid #e9e2db; border-radius: 8px; }
+    .lg-btn { margin-top: 12px; height: 37px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; }
+    #e3-go { margin-top: 20px; background: #c84606; color: #fff; }
+    #e3-google { background: #fff; color: #281c13; border: 1px solid #e9e2db; box-shadow: 0 1px 2px rgba(40, 28, 19, 0.08); }
+    .lg-links { margin-top: 26px; display: flex; justify-content: space-between; padding: 0 18px; font-size: 15px; font-weight: 500; color: #c84606; }
+    #e3-ok { position: absolute; inset: 0; background: #fcfbf9; display: flex; flex-direction: column; align-items: center; padding-top: 200px; opacity: 0; }
+    #e3-ok .c { width: 190px; height: 190px; border-radius: 50%; background: #c84606; color: #fff; display: flex; align-items: center; justify-content: center; }
+    #e3-ok .c svg { width: 110px; height: 110px; stroke-width: 2.6; }
+    #e3-ok .t { margin-top: 44px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 76px; color: #101c29; letter-spacing: -0.02em; }
+    #e3-ok .s { margin-top: 12px; font-family: "AMJ Inter", sans-serif; font-size: 40px; color: #675b52; }
+  </style>
+  <div id="root" data-composition-id="e3" data-width="1080" data-height="1920">
+    <div id="e3-cam">
+      <div class="x-ttl on-orange" id="e3-ttl"><span class="w">Inscription</span><br /><span class="w acc">en 1 clic</span></div>
+      <div class="x-screen" id="e3-scr">
+        <div class="app">
+          <div class="hdr"><div class="logo">elmakanjamil</div><i data-i="bell" class="bell"></i></div>
+          <div class="lg-body">
+            <div class="lg-eb">MON COMPTE</div>
+            <div class="lg-h1">Se connecter</div>
+            <div class="lg-lb">Adresse e-mail</div><div class="lg-in"></div>
+            <div class="lg-lb">Mot de passe</div><div class="lg-in"></div>
+            <div class="lg-btn" id="e3-go">Me connecter</div>
+            <div class="lg-btn" id="e3-google">Continuer avec Google</div>
+            <div class="lg-links"><span>Créer un compte</span><span>Mot de passe oublié ?</span></div>
+          </div>
+        </div>
+        <div id="e3-ok"><div class="c"><i data-i="check"></i></div><div class="t">Bienvenue !</div><div class="s">Votre compte est créé</div></div>
+      </div>
+    </div>
+    <div class="finger" id="e3-finger"></div>
+    <div class="x-wipe g-cream" id="e3-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#e3-finger";
+      tl.set("#e3-wipe", { y: 1920 }, 0);
+      tl.fromTo("#e3-scr", { x: 700, filter: "blur(14px)" }, { x: 0, filter: "blur(0px)", duration: 0.36, ease: "power3.out" }, 0);
+      amj.wordsIn(tl, gsap.utils.toArray("#e3-ttl .w"), 0.08, 0.12, 0.16);
+      // « avec Google » : tap sur le vrai bouton de connexion.
+      amj.fingerIn(tl, f, 0.7, 540, 1331, 1000, 1750);
+      amj.press(tl, f, 1.4);
+      tl.to("#e3-google", { backgroundColor: "#f3eee9", duration: 0.08 }, 1.34);
+      tl.to(f, { opacity: 0, duration: 0.12 }, 1.52);
+      tl.fromTo("#e3-ok", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 1.5);
+      tl.fromTo("#e3-ok .c", { scale: 0.5 }, { scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 1.5);
+      tl.to("#e3-wipe", { y: 0, duration: 0.2667, ease: "power3.in" }, 1.9333);
+      tl.to("#e3-cam", { y: -400, filter: "blur(10px)", duration: 0.2667, ease: "power3.in" }, 1.9333);
+      window.__timelines["e3"] = tl;
+    })();
+  </script>
+</template>

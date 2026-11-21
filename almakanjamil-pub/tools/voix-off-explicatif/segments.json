@@ -1,0 +1,57 @@
+[
+ {
+  "id": "l01",
+  "text": "Vous vivez en Égypte ?",
+  "slot": 9
+ },
+ {
+  "id": "l02",
+  "text": "Voici elmakanjamil : les petites annonces entre francophones !",
+  "slot": 9
+ },
+ {
+  "id": "l03",
+  "text": "Un logement, un meuble, une voiture ? Achetez, vendez, louez, près de chez vous.",
+  "slot": 9
+ },
+ {
+  "id": "l04",
+  "text": "Inscription en un clic, avec Google.",
+  "slot": 9
+ },
+ {
+  "id": "l05",
+  "text": "Pour vendre, décrivez votre article :",
+  "slot": 9
+ },
+ {
+  "id": "l06",
+  "text": "l'IA remplit l'annonce pour vous.",
+  "slot": 9
+ },
+ {
+  "id": "l07",
+  "text": "Une photo, un clic : c'est en ligne !",
+  "slot": 9
+ },
+ {
+  "id": "l08",
+  "text": "Les acheteurs vous contactent en direct, sur Ouatsap ou Telegram.",
+  "slot": 9
+ },
+ {
+  "id": "l09",
+  "text": "Pour chercher, filtrez par ville, ou explorez la carte.",
+  "slot": 9
+ },
+ {
+  "id": "l10",
+  "text": "Et tout est gratuit !",
+  "slot": 9
+ },
+ {
+  "id": "l11",
+  "text": "elmakanjamil : les petites annonces en Égypte.",
+  "slot": 9
+ }
+]

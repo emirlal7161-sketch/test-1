@@ -1,0 +1,58 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <link rel="stylesheet" href="assets/explicatif.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #d74800; }
+    #e5-cam { position: absolute; inset: 0; }
+    #e5-ttl .w { opacity: 0; }
+    #e5-card { left: 190px; top: 470px; width: 700px; }
+    #e5-card .ph { height: 420px; }
+    #e5-new { position: absolute; left: 24px; top: 24px; height: 58px; padding: 0 22px; border-radius: 29px; background: #c84606; color: #fff; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 30px; display: flex; align-items: center; }
+    #e5-card .pr { font-size: 62px; }
+    #e5-card .nm { font-size: 44px; }
+    #e5-card .mt { margin-top: 8px; font-family: "AMJ Inter", sans-serif; font-size: 32px; color: #675b52; }
+    .e5-btns { margin-top: 22px; display: flex; gap: 20px; }
+    .e5-btn { height: 84px; flex: 1; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 34px; }
+    .e5-btn svg { width: 40px; height: 40px; }
+    #e5-wa { background: #c84606; color: #fff; }
+    #e5-tg { background: #fff; color: #101c29; border: 2.5px solid #ede7e2; }
+    #e5-b1 { left: 360px; top: 560px; width: 680px; border-radius: 40px 40px 40px 10px; }
+    #e5-b2 { left: 40px; top: 1262px; width: 640px; border-radius: 40px 40px 10px 40px; }
+  </style>
+  <div id="root" data-composition-id="e5" data-width="1080" data-height="1920">
+    <div id="e5-cam">
+      <div class="x-ttl on-orange" id="e5-ttl"><span class="w">Contact</span> <span class="w acc">direct</span></div>
+      <div class="x-card" id="e5-card">
+        <div style="position: relative"><img class="ph" src="assets/img/canape-angle.jpg" alt="Canapé d'angle gris" /><div id="e5-new">Nouveau</div></div>
+        <div class="tx">
+          <div class="pr">4 500 EGP</div>
+          <div class="nm">Canapé d’angle gris</div>
+          <div class="mt">Meubles · Le Caire · à l’instant</div>
+          <div class="e5-btns"><div class="e5-btn" id="e5-wa"><i data-i="message-circle"></i>WhatsApp</div><div class="e5-btn" id="e5-tg"><i data-i="send"></i>Telegram</div></div>
+        </div>
+      </div>
+      <div class="x-bub" id="e5-b1" data-layout-allow-occlusion><div class="h"><i data-i="message-circle"></i>WhatsApp</div><div class="m">Bonjour ! Le canapé est toujours disponible ?</div></div>
+      <div class="x-bub" id="e5-b2" data-layout-allow-occlusion><div class="h"><i data-i="send"></i>Telegram</div><div class="m">Je peux passer le voir ce soir ?</div></div>
+    </div>
+    <div class="x-wipe g-cream" id="e5-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      tl.set("#e5-wipe", { y: 1920 }, 0);
+      tl.fromTo("#e5-card", { x: 600, scale: 0.9, filter: "blur(14px)" }, { x: 0, scale: 1, filter: "blur(0px)", duration: 0.38, ease: "power3.out" }, 0);
+      amj.wordsIn(tl, gsap.utils.toArray("#e5-ttl .w"), 0.1, 0.12, 0.16);
+      tl.fromTo("#e5-new", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, 0.4);
+      // Les acheteurs écrivent : WhatsApp, puis Telegram.
+      tl.fromTo("#e5-b1", { opacity: 0, scale: 0.7, y: 40, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.15);
+      tl.to("#e5-wa", { scale: 1.05, duration: 0.12, ease: "power2.out" }, 2.1);
+      tl.to("#e5-wa", { scale: 1, duration: 0.2, ease: "power2.inOut" }, 2.22);
+      tl.fromTo("#e5-b2", { opacity: 0, scale: 0.7, y: 40, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "power3.out" }, 2.65);
+      tl.to("#e5-tg", { borderColor: "#c84606", backgroundColor: "#fff3ea", duration: 0.15 }, 2.7);
+      tl.to("#e5-wipe", { y: 0, duration: 0.2667, ease: "power3.in" }, 3.1333);
+      tl.to("#e5-cam", { y: -400, filter: "blur(10px)", duration: 0.2667, ease: "power3.in" }, 3.1333);
+      window.__timelines["e5"] = tl;
+    })();
+  </script>
+</template>
