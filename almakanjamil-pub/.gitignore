@@ -6,3 +6,6 @@ calib/out/
 __pycache__/
 ad/renders/work-*/
 ad/renders/.*transaction*/
+**/.hyperframes/
+**/renders/work-*/
+**/renders/.*transaction*/
