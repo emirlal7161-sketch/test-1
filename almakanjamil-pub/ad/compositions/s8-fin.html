@@ -1,0 +1,72 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s8-iris { position: absolute; inset: 0; background: #fcfbf9; clip-path: circle(0px at 231px 994px); }
+    .s8-line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+    #s8-eb { top: 610px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 40px; letter-spacing: 0.06em; color: #c84606; }
+    #s8-eb span { display: inline-block; margin: 0 9px; }
+    #s8-free { top: 668px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 250px; line-height: 1; letter-spacing: -0.035em; color: #101c29; }
+    #s8-free span { display: inline-block; }
+    #s8-free .dot { color: #c84606; }
+    #s8-logo-o, #s8-logo-f { top: 632px; font-family: "AMJ Poppins", sans-serif; font-weight: 600; font-size: 114px; line-height: 1.25; letter-spacing: -0.015em; }
+    #s8-logo-o { color: transparent; -webkit-text-stroke: 3px #f27528; }
+    #s8-logo-o span { display: inline-block; }
+    #s8-logo-f { color: #f27528; clip-path: inset(100% 0 0 0); }
+    #s8-url-row { position: absolute; left: 0; top: 836px; width: 1080px; display: flex; justify-content: center; }
+    #s8-url { height: 132px; padding: 0 58px 0 48px; border-radius: 66px; background: #fff; border: 3px solid #e9e2db; box-shadow: 0 18px 40px rgba(40, 28, 19, 0.12); display: flex; align-items: center; gap: 22px; opacity: 0; }
+    #s8-url svg { width: 46px; height: 46px; color: #675b52; }
+    #s8-url .d { font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 62px; letter-spacing: -0.01em; color: #101c29; white-space: nowrap; }
+    #s8-url .d span { opacity: 0; }
+    #s8-cats { position: absolute; left: 0; top: 1118px; width: 1080px; display: flex; justify-content: center; gap: 34px; }
+    .s8-cat { width: 190px; display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; }
+    .s8-tile { width: 96px; height: 96px; border-radius: 23px; background: #f1f3f5; color: #101c29; display: flex; align-items: center; justify-content: center; }
+    .s8-tile svg { width: 52px; height: 52px; }
+    .s8-lb { font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 28px; color: #101c29; white-space: nowrap; }
+    #s8-base { top: 1014px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 44px; color: #675b52; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s8" data-width="1080" data-height="1920">
+    <div id="s8-iris">
+      <div class="s8-line" id="s8-eb"><span>PUBLICATION</span><span>GRATUITE</span></div>
+      <div class="s8-line" id="s8-free"><span>G</span><span>r</span><span>a</span><span>t</span><span>u</span><span>i</span><span>t</span><span class="dot">.</span></div>
+      <div class="s8-line" id="s8-logo-o"><span>e</span><span>l</span><span>m</span><span>a</span><span>k</span><span>a</span><span>n</span><span>j</span><span>a</span><span>m</span><span>i</span><span>l</span></div>
+      <div class="s8-line" id="s8-logo-f">elmakanjamil</div>
+      <div id="s8-url-row"><div id="s8-url"><svg class="lucide lucide-lock" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg><div class="d" id="s8-dom"><span>a</span><span>l</span><span>m</span><span>a</span><span>k</span><span>a</span><span>n</span><span>j</span><span>a</span><span>m</span><span>i</span><span>l</span><span>.</span><span>c</span><span>o</span><span>m</span></div></div></div>
+      <div class="s8-line" id="s8-base">Petites annonces en Égypte</div>
+      <div id="s8-cats">
+        <div class="s8-cat"><div class="s8-tile"><svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></div><div class="s8-lb">Logements</div></div>
+        <div class="s8-cat"><div class="s8-tile"><svg class="lucide lucide-shopping-bag" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0" /> <path d="M3.103 6.034h17.794" /> <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" /></svg></div><div class="s8-lb">Achat &amp; Vente</div></div>
+        <div class="s8-cat"><div class="s8-tile"><svg class="lucide lucide-car-front" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" /> <path d="M7 14h.01" /> <path d="M17 14h.01" /> <rect width="18" height="8" x="3" y="10" rx="2" /> <path d="M5 18v2" /> <path d="M19 18v2" /></svg></div><div class="s8-lb">Véhicules</div></div>
+        <div class="s8-cat"><div class="s8-tile"><svg class="lucide lucide-washing-machine" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h3" /> <path d="M17 6h.01" /> <rect width="18" height="20" x="3" y="2" rx="2" /> <circle cx="12" cy="13" r="5" /> <path d="M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5" /></svg></div><div class="s8-lb">Électroménager</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      // Iris depuis le bouton Telegram touché.
+      tl.fromTo("#s8-iris", { clipPath: "circle(0px at 231px 994px)" }, { clipPath: "circle(2400px at 231px 994px)", duration: 0.26, ease: "power2.in" }, 0);
+      // « Et c'est gratuit. » : texte réel du formulaire, puis le mot héros.
+      amj.wordsIn(tl, gsap.utils.toArray("#s8-eb span"), 0.24, 0.07);
+      amj.wordsIn(tl, gsap.utils.toArray("#s8-free span"), 0.36, 0.045, 0.16);
+      tl.to(["#s8-eb", "#s8-free"], { y: -50, opacity: 0, filter: "blur(10px)", duration: 0.22, ease: "power2.in" }, 1.4);
+      // Logotype exact de l'app : tracé lettre à lettre, puis rempli par le bas.
+      gsap.utils.toArray("#s8-logo-o span").forEach(function (s, i) {
+        tl.fromTo(s, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" }, 1.5 + i * 0.04);
+      });
+      tl.fromTo("#s8-logo-f", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.27, ease: "power2.inOut" }, 1.95);
+      tl.to("#s8-logo-o", { opacity: 0, duration: 0.1 }, 2.22);
+      // Adresse à retenir : almakanjamil.com, tapée dans la barre d'adresse.
+      tl.fromTo("#s8-url", { opacity: 0, scale: 0.9, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.22, ease: "power3.out" }, 2.0);
+      gsap.utils.toArray("#s8-dom span").forEach(function (s, i) {
+        tl.set(s, { opacity: 1 }, 2.1 + i * 0.038);
+      });
+      amj.blurIn(tl, "#s8-base", 2.95, 0.2);
+      gsap.utils.toArray("#s8-cats .s8-cat").forEach(function (c, i) {
+        tl.fromTo(c, { opacity: 0, y: 24, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 3.25 + i * 0.07);
+      });
+      window.__timelines["s8"] = tl;
+    })();
+  </script>
+</template>

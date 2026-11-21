@@ -1,0 +1,87 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #f2efe9; }
+    #s3-world { position: absolute; inset: 0; }
+    #s3-map { position: absolute; left: -60px; top: -90px; width: 1200px; height: 2100px; }
+    #s3-map img { width: 100%; height: 100%; display: block; }
+    /* Contrôle de zoom Leaflet (comme sur la carte réelle de l'app) */
+    #s3-zoomctl { position: absolute; left: 44px; top: 496px; width: 82px; border-radius: 12px; background: #fff; border: 4px solid rgba(0, 0, 0, 0.2); background-clip: padding-box; overflow: hidden; }
+    #s3-zoomctl div { height: 78px; display: flex; align-items: center; justify-content: center; color: #000; }
+    #s3-zoomctl div + div { border-top: 2px solid #ccc; }
+    #s3-zoomctl svg { width: 42px; height: 42px; stroke-width: 3; }
+    /* Repères de prix */
+    .mk { position: absolute; width: 0; height: 0; }
+    .mk-in { position: absolute; left: 0; top: 0; transform: translate(-50%, -100%); padding-bottom: 16px; }
+    .mk-box { white-space: nowrap; height: 76px; padding: 0 26px; border-radius: 38px; background: #fff; color: #101c29; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 38px; line-height: 76px; box-shadow: 0 8px 20px rgba(40, 28, 19, 0.22); }
+    .mk-tip { position: absolute; left: 50%; bottom: 4px; width: 22px; height: 22px; margin-left: -11px; background: #fff; transform: rotate(45deg); border-radius: 3px; }
+    #s3-zone { position: absolute; left: 470px; top: 530px; width: 340px; height: 340px; border-radius: 50%; border: 4px solid rgba(200, 70, 6, 0.85); background: rgba(200, 70, 6, 0.12); }
+    /* Aperçu d'annonce */
+    #s3-prev { position: absolute; left: 40px; top: 930px; width: 1000px; height: 300px; border-radius: 40px; background: #fff; box-shadow: 0 22px 48px rgba(40, 28, 19, 0.2); }
+    #s3-prev-tx { position: absolute; left: 304px; top: 30px; right: 30px; color: #101c29; }
+    #s3-prev .p { font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 54px; letter-spacing: -0.015em; line-height: 1.1; }
+    #s3-prev .t { margin-top: 10px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 34px; line-height: 1.22; }
+    #s3-prev .w { margin-top: 14px; display: flex; align-items: center; gap: 10px; font-family: "AMJ Inter", sans-serif; font-size: 34px; }
+    #s3-prev .w svg { width: 36px; height: 36px; }
+    #s3-thumb { position: absolute; left: 24px; top: 24px; width: 252px; height: 252px; border-radius: 24px; overflow: hidden; }
+    #s3-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    #s3-white { position: absolute; inset: 0; background: #fff; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.25); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1920">
+    <div id="s3-world">
+      <div id="s3-map"><img src="assets/img/carte-illustrative.svg" alt="Fond de plan illustratif" /></div>
+      <div id="s3-zone"></div>
+      <div class="mk" id="s3-m2" style="left: 300px; top: 600px"><div class="mk-in"><div class="mk-box">16 000 EGP</div><div class="mk-tip"></div></div></div>
+      <div class="mk" id="s3-m3" style="left: 865px; top: 560px"><div class="mk-in"><div class="mk-box">310 €</div><div class="mk-tip"></div></div></div>
+      <div class="mk" id="s3-m4" style="left: 320px; top: 880px"><div class="mk-in"><div class="mk-box">20 000 EGP</div><div class="mk-tip"></div></div></div>
+      <div class="mk" id="s3-m5" style="left: 860px; top: 940px"><div class="mk-in"><div class="mk-box">30 000 EGP</div><div class="mk-tip"></div></div></div>
+      <div class="mk" id="s3-m6" style="left: 230px; top: 1120px"><div class="mk-in"><div class="mk-box">320 €</div><div class="mk-tip"></div></div></div>
+      <div class="mk" id="s3-m1" style="left: 640px; top: 720px"><div class="mk-in"><div class="mk-box" id="s3-m1-box">320 €</div><div class="mk-tip" id="s3-m1-tip"></div></div></div>
+      <div id="s3-zoomctl"><div><i data-i="plus"></i></div><div><i data-i="minus"></i></div></div>
+    </div>
+    <div id="s3-prev">
+      <div id="s3-prev-tx">
+        <div class="p">320 € / mois</div>
+        <div class="t">APPARTEMENT T3 MEUBLÉ –<br />2 CHAMBRES</div>
+        <div class="w"><i data-i="map-pin"></i>Toub Ramli · Le Caire</div>
+      </div>
+      <div id="s3-thumb"><img src="assets/img/chambre-toub-ramli@hd.jpg" alt="Chambre de l'annonce" /></div>
+    </div>
+    <div class="finger" id="s3-finger"></div>
+    <div id="s3-white"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s3-finger";
+      // Le blanc du bouton « Carte » devient la carte.
+      tl.fromTo("#s3-white", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power2.out" }, 0);
+      tl.fromTo("#s3-map", { scale: 1.06, transformOrigin: "50% 40%" }, { scale: 1, duration: 0.6, ease: "power2.out" }, 0);
+      tl.set("#s3-prev", { y: 1000 }, 0);
+      // Repères de prix réels, en cascade.
+      ["#s3-m2", "#s3-m3", "#s3-m1", "#s3-m4", "#s3-m5", "#s3-m6"].forEach(function (m, i) {
+        tl.fromTo(m, { scale: 0.55, opacity: 0, y: 14 }, { scale: 1, opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }, 0.2 + i * 0.09);
+      });
+      tl.fromTo("#s3-zone", { scale: 0.4, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.38);
+      // Tap sur le repère 320 € (Toub Ramli).
+      amj.fingerIn(tl, f, 0.82, 640, 668, 1120, 1500);
+      amj.press(tl, f, 1.15);
+      amj.moveTo(tl, f, 1.24, 720, 790, 0.2);
+      tl.to(["#s3-m1-box", "#s3-m1-tip"], { backgroundColor: "#c84606", color: "#ffffff", duration: 0.12, ease: "power2.out" }, 1.15);
+      tl.to("#s3-m1", { scale: 1.12, duration: 0.24, ease: "power3.out" }, 1.15);
+      // Aperçu de l'annonce.
+      tl.to("#s3-prev", { y: 0, duration: 0.34, ease: "power3.out" }, 1.2);
+      amj.moveTo(tl, f, 1.52, 190, 1080, 0.22);
+      amj.press(tl, f, 1.8);
+      tl.to(f, { opacity: 0, duration: 0.08 }, 1.84);
+      // La photo devient le monde suivant : elle grandit jusqu'au carré de départ de la scène Photos.
+      tl.to("#s3-prev-tx", { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in" }, 1.85);
+      tl.to("#s3-prev", { backgroundColor: "rgba(255,255,255,0)", boxShadow: "0 0 0 rgba(0,0,0,0)", duration: 0.16 }, 1.85);
+      tl.to("#s3-world", { filter: "blur(12px)", opacity: 0.35, duration: 0.3, ease: "power2.in" }, 1.85);
+      tl.to("#s3-thumb", { x: 350, y: -220, scale: 3.492, borderRadius: "18.3px", duration: 0.3167, ease: "power2.inOut" }, 1.85);
+      window.__timelines["s3"] = tl;
+    })();
+  </script>
+</template>

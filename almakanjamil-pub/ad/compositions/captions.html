@@ -1,0 +1,48 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    .cap { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; opacity: 0; overflow: visible; }
+    .cap.top { top: 292px; }
+    .cap.bot { bottom: 680px; }
+    .cap .box { display: inline-block; max-width: 920px; padding: 16px 34px 20px; border-radius: 26px; background: rgba(40, 28, 19, 0.94); color: #fff; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 54px; line-height: 1.14; letter-spacing: -0.015em; text-align: center; box-shadow: 0 10px 28px rgba(40, 28, 19, 0.18); }
+    .cap .acc { color: #ff9a5c; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div data-layout-allow-occlusion class="cap bot" id="cap-01"><span class="box">Il est sur <span class="acc">almakanjamil</span>.</span></div>
+    <div data-layout-allow-occlusion class="cap bot" id="cap-02"><span class="box">Filtrez par <span class="acc">ville</span>,</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-03"><span class="box">et repérez chaque annonce<br />sur la <span class="acc">carte</span>.</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-04"><span class="box">Photos, <span class="acc">vidéos</span> :</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-05"><span class="box">visitez avant même<br />de vous déplacer.</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-06"><span class="box">Vous vendez un téléphone,<br />une <span class="acc">voiture</span> ?</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-07"><span class="box">Collez votre message<br /><span class="acc">Telegram</span> :</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-08"><span class="box">l’<span class="acc">IA</span> remplit l’annonce<br />pour vous.</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-09"><span class="box">Contact <span class="acc">direct</span>,</span></div>
+    <div data-layout-allow-occlusion class="cap top" id="cap-10"><span class="box">sur WhatsApp ou Telegram.</span></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      // [groupe, début, fin] calés sur les segments de voix off mesurés (secondes du film).
+      var groups = [
+        ["#cap-01", 3.55, 5.33],
+        ["#cap-02", 5.4, 6.93],
+        ["#cap-03", 6.95, 9.1],
+        ["#cap-04", 9.2, 10.22],
+        ["#cap-05", 10.25, 12.33],
+        ["#cap-06", 12.45, 14.7],
+        ["#cap-07", 14.8, 16.65],
+        ["#cap-08", 16.7, 18.46],
+        ["#cap-09", 18.6, 19.78],
+        ["#cap-10", 19.8, 21.3]
+      ];
+      groups.forEach(function (g) {
+        var sel = g[0], a = g[1], b = g[2];
+        tl.fromTo(sel, { opacity: 0, filter: "blur(8px)", visibility: "visible" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" }, a);
+        tl.to(sel, { opacity: 0, filter: "blur(6px)", duration: 0.12, ease: "power2.in" }, b - 0.12);
+        tl.set(sel, { opacity: 0, visibility: "hidden" }, b);
+      });
+      window.__timelines["captions"] = tl;
+    })();
+  </script>
+</template>

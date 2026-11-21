@@ -1,0 +1,86 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #s4-cam { position: absolute; inset: 0; }
+    .s4-card { position: absolute; width: 479px; color: #101c29; }
+    .s4-img { position: relative; width: 479px; height: 479px; border-radius: 35px; overflow: hidden; background: #ddd; }
+    .s4-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .s4-heart { position: absolute; right: 20px; top: 20px; width: 88px; height: 88px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: #101c29; box-shadow: 0 3px 8px rgba(16, 28, 41, 0.12); }
+    .s4-heart svg { width: 46px; height: 46px; }
+    .s4-pager { position: absolute; left: 50%; bottom: 20px; margin-left: -64px; width: 128px; height: 33px; border-radius: 17px; background: rgba(27, 16, 10, 0.78); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .s4-pager i { width: 10px; height: 10px; border-radius: 5px; background: rgba(255, 255, 255, 0.75); display: block; }
+    .s4-pager i.on { width: 28px; background: #fff; }
+    .s4-tx { padding-top: 23px; }
+    .s4-tx .pr { font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -0.01em; line-height: 1.2; }
+    .s4-tx .tt { margin-top: 3px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 39px; line-height: 1.25; }
+    .s4-tx .ct { margin-top: 10px; font-family: "AMJ Inter", sans-serif; font-size: 34px; }
+    .s4-pills { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 15px; }
+    .s4-pill { height: 61px; padding: 0 20px 0 17px; border-radius: 15px; background: #dfedf9; font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 31.5px; display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; }
+    .s4-pill svg { width: 35px; height: 35px; color: #c84606; }
+    .s4-wh { margin-top: 20px; display: flex; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-size: 34px; }
+    .s4-wh svg { width: 38px; height: 38px; }
+    #s4-wipe { position: absolute; inset: 0; background: #d74800; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.25); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1080" data-height="1920">
+    <div id="s4-cam">
+      <div class="s4-card" id="s4-b" style="left: 559px; top: 470px; z-index: 1">
+        <div class="s4-img"><img src="assets/img/video-porte@hd.jpg" alt="Vidéo : appartement moderne 3 chambres" /></div>
+        <div class="s4-tx"><div class="pr">30 000 EGP / mois</div><div class="tt">APPARTEMENT MODERNE 3 CHAMBRES</div><div class="ct">Appartement</div>
+          <div class="s4-pills"><span class="s4-pill" data-layout-allow-overlap><svg class="lucide lucide-bed-double" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /> <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /> <path d="M12 4v6" /> <path d="M2 18h20" /></svg>3 chambres</span><span class="s4-pill" data-layout-allow-overlap><svg class="lucide lucide-fence" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /> <path d="M6 8h4" /> <path d="M6 18h4" /> <path d="m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /> <path d="M14 8h4" /> <path d="M14 18h4" /> <path d="m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /></svg>Balcon</span></div></div>
+      </div>
+      <div class="s4-card" id="s4-c" style="left: 40px; top: 1417px; z-index: 1">
+        <div class="s4-img"><img src="assets/img/video-couloir@hd.jpg" alt="Vidéo : appartement meublé T3 climatisé" /></div>
+        <div class="s4-tx"><div class="pr">310 € / mois</div><div class="tt">Appartement meublé T3 climatisé</div></div>
+      </div>
+      <div class="s4-card" id="s4-d" style="left: 559px; top: 1417px; z-index: 5">
+        <div class="s4-img" id="s4-d-img" style="z-index: 3"><img src="assets/img/video-compound@hd.jpg" alt="Vidéo : appartement 3 chambres en compound, 185 m²" /></div>
+        <div class="s4-tx" id="s4-d-tx"><div class="pr">20 000 EGP / mois</div><div class="tt">APPARTEMENT 3 CHAMBRES – Compoun…</div></div>
+      </div>
+      <div class="s4-card" id="s4-e" style="left: 40px; top: 2364px; z-index: 1">
+        <div class="s4-img"><img src="assets/img/salon-east-park.jpg" alt="Salon, appartement meublé T3 à East Park" /></div>
+        <div class="s4-tx"><div class="pr">320 € / mois</div><div class="tt">Appartement meublé T3 sur East park</div></div>
+      </div>
+      <div class="s4-card" id="s4-f" style="left: 559px; top: 2364px; z-index: 1">
+        <div class="s4-img"><img src="assets/img/iphone-16-pro-max.jpg" alt="iPhone 16 Pro Max" /></div>
+        <div class="s4-tx"><div class="pr">39 000 EGP</div><div class="tt">Iphone 16 pro max</div></div>
+      </div>
+      <div class="s4-card" id="s4-a" style="left: 40px; top: 470px; z-index: 4">
+        <div class="s4-img" id="s4-a-img"><img src="assets/img/chambre-toub-ramli@hd.jpg" alt="Chambre, appartement T3 meublé à Toub Ramli" /><div class="s4-heart" id="s4-a-heart"><svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div><div class="s4-pager" id="s4-a-pager"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="s4-tx" id="s4-a-tx"><div class="pr">320 € / mois</div><div class="tt">APPARTEMENT T3 MEUBLÉ – 2 CHAMBRES</div><div class="ct">Appartement</div>
+          <div class="s4-pills"><span class="s4-pill" data-layout-allow-overlap><svg class="lucide lucide-sofa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" /> <path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" /> <path d="M4 18v2" /> <path d="M20 18v2" /> <path d="M12 4v9" /></svg>Meublé</span><span class="s4-pill" data-layout-allow-overlap><svg class="lucide lucide-bed-double" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /> <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /> <path d="M12 4v6" /> <path d="M2 18h20" /></svg>2 chambres</span></div></div>
+      </div>
+    </div>
+    <div class="finger" id="s4-finger"></div>
+    <div id="s4-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s4-finger";
+      tl.set("#s4-wipe", { x: 1080 }, 0);
+      // La photo de l'aperçu (fin de la carte) se range dans la grille des annonces récentes.
+      // Tenue d'un instant sur la grande photo (« Photos »), puis rangement dans la grille.
+      tl.fromTo("#s4-a-img", { x: 260.5, y: 150.5, scale: 1.837, transformOrigin: "50% 50%" }, { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power2.inOut" }, 0.15);
+      tl.fromTo(["#s4-a-heart", "#s4-a-pager"], { opacity: 0 }, { opacity: 1, duration: 0.15 }, 0.55);
+      tl.fromTo("#s4-a-tx", { opacity: 0, y: 30, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0.45);
+      ["#s4-b", "#s4-c", "#s4-d", "#s4-e", "#s4-f"].forEach(function (c, i) {
+        tl.fromTo(c, { opacity: 0, y: 80, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 0.3 + i * 0.07);
+      });
+      // Défilement : les vidéos montent dans le cadre.
+      tl.to("#s4-cam", { y: -1000, duration: 1.2, ease: "power2.inOut" }, 0.55);
+      // Tap sur la vidéo du compound, qui s'agrandit.
+      amj.fingerIn(tl, f, 1.72, 798, 656, 1130, 1560);
+      amj.press(tl, f, 2.05);
+      tl.to(["#s4-a", "#s4-b", "#s4-c", "#s4-e", "#s4-f", "#s4-d-tx"], { opacity: 0.18, filter: "blur(6px)", duration: 0.3, ease: "power2.out" }, 2.1);
+      tl.to("#s4-d-img", { x: -258.5, y: 203.5, scale: 1.5, boxShadow: "0 30px 60px rgba(40,28,19,0.28)", duration: 0.45, ease: "power3.out" }, 2.1);
+      // Glissement vers la gauche : l'univers Achat & Vente arrive (aplat orange).
+      tl.to(f, { x: 220, y: 760, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.88);
+      tl.to("#s4-wipe", { x: 0, duration: 0.2833, ease: "power3.in" }, 2.95);
+      tl.to("#s4-cam", { x: -260, filter: "blur(10px)", duration: 0.2833, ease: "power3.in" }, 2.95);
+      window.__timelines["s4"] = tl;
+    })();
+  </script>
+</template>

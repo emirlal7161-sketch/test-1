@@ -1,0 +1,109 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #s6-cam { position: absolute; inset: 0; }
+    #s6-form { top: 186.26px; background: transparent; padding: 0 16px; color: #281c13; } /* 470 px ÷ zoom 2,5234 */
+    .f-eb { font-family: var(--amj-display); font-weight: 700; font-size: 12.5px; line-height: 17px; letter-spacing: 0.01em; color: #c84606; }
+    .f-h1 { margin-top: 6px; font-family: var(--amj-display); font-weight: 800; font-size: 24px; line-height: 32px; letter-spacing: -0.02em; color: #281c13; }
+    .f-req { margin-top: 10px; font-size: 13.5px; line-height: 18px; color: #675b52; }
+    .f-req b, .f-lb b { color: #c84606; font-weight: 600; }
+    .f-tog { margin-top: 14px; display: flex; gap: 10px; }
+    .tbtn { height: 35.5px; border-radius: 7px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 500; border: 1px solid transparent; }
+    .tbtn svg { width: 18px; height: 18px; }
+    #s6-hand { width: 92px; background: #c84606; color: #fff; border-color: #c84606; }
+    #s6-ai { width: 114px; background: #fff; color: #281c13; border-color: #e9e2db; box-shadow: 0 1px 2px rgba(40, 28, 19, 0.08); }
+    #s6-panel { margin-top: 14px; background: #fff; border: 1px solid #e9e2db; border-radius: 10px; padding: 12px; box-shadow: 0 2px 6px rgba(40, 28, 19, 0.05); opacity: 0; }
+    .p-lb { font-size: 14px; font-weight: 600; line-height: 17px; color: #281c13; }
+    .p-ta { position: relative; margin-top: 8px; height: 62px; border: 1px solid #e9e2db; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; line-height: 17.5px; }
+    .p-ta .ph { color: #8a7f77; }
+    .p-ta .txt { position: absolute; left: 10px; top: 8px; right: 10px; color: #101c29; opacity: 0; }
+    .p-btn { margin-top: 10px; height: 34px; border-radius: 7px; background: #c84606; color: #fff; font-size: 14.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .p-btn svg { width: 17px; height: 17px; }
+    #s6-fields { margin-top: 16px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; margin-top: 14px; }
+    .f-row.one { grid-template-columns: 1fr; }
+    .f-row:first-child { margin-top: 0; }
+    .f-lb { font-size: 15px; font-weight: 600; line-height: 20px; color: #281c13; white-space: nowrap; }
+    .f-box { position: relative; margin-top: 6px; background: #fff; border: 1px solid #e9e2db; display: flex; align-items: center; justify-content: space-between; color: #101c29; overflow: hidden; }
+    .f-box.sel { height: 25.5px; border-radius: 6px; padding: 0 7px 0 9px; font-size: 14.5px; }
+    .f-box.inp { height: 40.8px; border-radius: 8px; padding: 0 12px; font-size: 16px; }
+    .f-box svg { width: 14px; height: 14px; color: #281c13; }
+    .f-box .ph { position: absolute; left: 9px; color: #281c13; }
+    .f-box.inp .ph { left: 12px; color: #8a7f77; }
+    .f-box .val { white-space: nowrap; clip-path: inset(0 100% 0 0); }
+    #s6-tg { position: absolute; left: 130px; top: 872px; width: 880px; padding: 26px 34px 30px; border-radius: 36px 36px 36px 10px; background: #dfedf9; box-shadow: 0 24px 50px rgba(40, 28, 19, 0.22); color: #101c29; opacity: 0; }
+    #s6-tg .h { display: flex; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 29px; color: #675b52; }
+    #s6-tg .h svg { width: 34px; height: 34px; color: #c84606; }
+    #s6-tg .m { margin-top: 12px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 38px; line-height: 1.32; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.25); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s6" data-width="1080" data-height="1920">
+    <div id="s6-cam">
+      <div class="app" id="s6-form">
+        <div class="f-eb">PUBLICATION GRATUITE</div>
+        <div class="f-h1">Déposer une annonce</div>
+        <div class="f-req"><b>*</b> Champ obligatoire</div>
+        <div class="f-tog"><div class="tbtn" id="s6-hand">À la main</div><div class="tbtn" id="s6-ai"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></svg>Avec l’IA</div></div>
+        <div id="s6-panel">
+          <div class="p-lb">Texte de votre annonce</div>
+          <div class="p-ta"><span class="ph" id="s6-ta-ph" data-layout-allow-overlap>Collez ici votre message Telegram ou WhatsApp…</span><span class="txt" id="s6-ta-txt">Vends iPhone 16 Pro Max, très bon état. 39 000 EGP, Le Caire.</span></div>
+          <div class="p-btn" id="s6-go"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></svg>Remplir avec l’IA</div>
+        </div>
+        <div id="s6-fields">
+          <div class="f-row" id="s6-r1">
+            <div><div class="f-lb">Rubrique</div><div class="f-box sel" id="s6-b1"><span class="ph">Choisir</span><span class="val">Achat &amp; Vente</span><svg class="lucide lucide-chevrons-up-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5" /> <path d="m7 9 5-5 5 5" /></svg></div></div>
+            <div><div class="f-lb">Catégorie <b>*</b></div><div class="f-box sel" id="s6-b2"><span class="ph">Choisir</span><span class="val">Téléphones et informatique</span><svg class="lucide lucide-chevrons-up-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5" /> <path d="m7 9 5-5 5 5" /></svg></div></div>
+          </div>
+          <div class="f-row one" id="s6-r2"><div><div class="f-lb">Titre <b>*</b></div><div class="f-box inp" id="s6-b3"><span class="ph"></span><span class="val">Iphone 16 pro max</span></div></div></div>
+          <div class="f-row one" id="s6-r3"><div><div class="f-lb">Prix <b>*</b></div><div class="f-box inp" id="s6-b4"><span class="ph"></span><span class="val">39 000 EGP</span></div></div></div>
+          <div class="f-row" id="s6-r4">
+            <div><div class="f-lb">Ville <b>*</b></div><div class="f-box sel" id="s6-b5"><span class="ph">Choisir</span><span class="val">Le Caire</span><svg class="lucide lucide-chevrons-up-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5" /> <path d="m7 9 5-5 5 5" /></svg></div></div>
+            <div><div class="f-lb">Quartier (facultatif)</div><div class="f-box sel" id="s6-b6"><span class="ph">Non renseigné</span><span class="val">Nasr City</span><svg class="lucide lucide-chevrons-up-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5" /> <path d="m7 9 5-5 5 5" /></svg></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="s6-tg" data-layout-allow-occlusion><div class="h"><svg class="lucide lucide-send" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /> <path d="m21.854 2.147-10.94 10.939" /></svg>Message Telegram</div><div class="m" data-layout-allow-overlap>Vends iPhone 16 Pro Max, très bon état. 39 000 EGP, Le Caire.</div></div>
+    <div class="finger" id="s6-finger"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s6-finger";
+      // Arrivée par le bas.
+      tl.fromTo("#s6-cam", { y: 700, filter: "blur(16px)" }, { y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0);
+      // Bascule réelle « À la main » -> « Avec l'IA ».
+      amj.fingerIn(tl, f, 0.16, 442, 760, 1100, 1600);
+      amj.press(tl, f, 0.5);
+      amj.moveTo(tl, f, 0.6, 640, 845, 0.2);
+      tl.to("#s6-ai", { backgroundColor: "#c84606", color: "#ffffff", borderColor: "#c84606", duration: 0.12, ease: "power2.out" }, 0.52);
+      tl.to("#s6-hand", { backgroundColor: "#ffffff", color: "#281c13", borderColor: "#e9e2db", duration: 0.12, ease: "power2.out" }, 0.52);
+      tl.fromTo("#s6-panel", { opacity: 0, y: -10, scaleY: 0.92, filter: "blur(8px)", transformOrigin: "50% 0%" }, { opacity: 1, y: 0, scaleY: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0.56);
+      // Le message Telegram arrive, puis glisse dans la zone de texte.
+      tl.fromTo("#s6-tg", { x: 700, opacity: 0, filter: "blur(10px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power3.out" }, 0.92);
+      tl.to(f, { x: 990, y: 1150, duration: 0.3, ease: "power2.inOut" }, 1.0);
+      tl.to("#s6-tg", { y: 40, scale: 0.55, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, 1.58);
+      tl.to("#s6-ta-ph", { opacity: 0, duration: 0.08 }, 1.66);
+      amj.blurIn(tl, "#s6-ta-txt", 1.72, 0.16);
+      // « l'IA remplit l'annonce pour vous ».
+      amj.moveTo(tl, f, 1.82, 540, 1157, 0.18);
+      amj.press(tl, f, 2.05);
+      tl.to("#s6-go", { scale: 0.96, duration: 0.06, ease: "power2.in" }, 1.99);
+      tl.to("#s6-go", { scale: 1, duration: 0.12, ease: "power2.out" }, 2.05);
+      tl.to(f, { opacity: 0, duration: 0.12 }, 2.12);
+      tl.to("#s6-cam", { y: -700, duration: 0.45, ease: "power2.inOut" }, 2.1);
+      var fill = [["#s6-b1", 2.4], ["#s6-b2", 2.46], ["#s6-b3", 2.62], ["#s6-b4", 2.84], ["#s6-b5", 3.06], ["#s6-b6", 3.12]];
+      fill.forEach(function (it) {
+        var b = it[0], t = it[1];
+        tl.to(b + " .ph", { opacity: 0, duration: 0.06 }, t);
+        tl.fromTo(b + " .val", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.24, ease: "none" }, t);
+        tl.fromTo(b, { backgroundColor: "#ffe9d9", borderColor: "#c84606" }, { backgroundColor: "#ffffff", borderColor: "#e9e2db", duration: 0.7, ease: "power2.out", immediateRender: false }, t);
+      });
+      // Sortie vers le haut.
+      tl.to("#s6-cam", { y: -1460, filter: "blur(18px)", duration: 0.3167, ease: "power3.in" }, 3.45);
+      window.__timelines["s6"] = tl;
+    })();
+  </script>
+</template>

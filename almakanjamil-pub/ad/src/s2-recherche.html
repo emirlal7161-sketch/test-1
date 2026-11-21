@@ -1,0 +1,144 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #s2-cam { position: absolute; inset: 0; }
+    .s2-layer { position: absolute; inset: 0; }
+    #s2-topfill { position: absolute; left: 0; top: 0; width: 1080px; height: 302px; background: #fff; }
+    .s2-app { top: 118.89px; } /* 300 px de cadre ÷ zoom 2,5234 */
+    .s2-low { background: transparent; padding-top: 177.5px; }
+    .s2-navwrap { position: absolute; left: 0; top: 1778.7px; width: 1080px; height: 141.3px; }
+    .s2-navwrap .app { height: 56px; background: transparent; }
+    /* Liste « Logements » (mise en page liste réelle) */
+    .lcard { margin: 16px 16px 0; }
+    .lcard .media { position: relative; height: 247px; border-radius: 14px; overflow: hidden; }
+    .lcard .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lcard .price { margin-top: 9px; font-family: var(--amj-display); font-weight: 800; font-size: 21.5px; letter-spacing: -0.015em; color: var(--amj-ink); }
+    .lcard .ttl { margin-top: 2px; font-family: var(--amj-display); font-weight: 800; font-size: 14px; letter-spacing: 0; color: var(--amj-ink); }
+    .lcard .tx { margin-top: 6px; font-size: 13.3px; color: var(--amj-ink); }
+    .lcard .where { margin-top: 6px; font-size: 13.3px; display: flex; align-items: center; gap: 5px; }
+    .lcard .where svg { width: 14px; height: 14px; }
+    .lcard .when { margin-top: 6px; font-size: 11.5px; color: var(--amj-grey); }
+    .s2-sel-win { position: relative; height: 37px; overflow: hidden; flex: 1; }
+    .s2-sel-stack { position: absolute; left: 0; top: 0; width: 100%; }
+    .s2-sel-stack div { height: 37px; line-height: 37px; white-space: nowrap; }
+    #s2-carte > svg, #s2-carte > span { position: relative; z-index: 1; }
+    #s2-carte { position: absolute; left: 40px; top: 1598px; width: 237px; height: 105px; border-radius: 30px; background: #fff; border: 2.5px solid #e9e2db; box-shadow: 0 6px 18px rgba(40, 28, 19, 0.12); display: flex; align-items: center; justify-content: center; gap: 18px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 43px; color: #101c29; }
+    #s2-carte svg { width: 52px; height: 52px; }
+    #s2-bell { position: absolute; left: 930px; top: 1598px; width: 110px; height: 107px; border-radius: 30px; background: #d74800; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(40, 28, 19, 0.16); }
+    #s2-bell svg { width: 50px; height: 50px; }
+    #s2-zoom { position: absolute; left: -2.5px; top: -2.5px; width: 237px; height: 105px; border-radius: 30px; background: #fff; opacity: 0; z-index: 0; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.25); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div id="s2-cam">
+      <div id="s2-topfill"></div>
+
+      <!-- Bas de l'accueil (bannière, annonces récentes) -->
+      <div class="s2-layer" id="s2-lowA">
+        <div class="app s2-app s2-low">
+          <div class="banner"><div class="l"><div class="eb">COMMERCES LOCAUX</div><h3>L’Égypte à<br />deux pas</h3><p>Aucune publicité pour le moment.</p></div><div class="r" style="background-image: url(assets/img/banniere-caire.jpg)"></div></div>
+          <div class="sec" style="margin-top: 23.7px"><h2>Annonces récentes</h2><div class="more">Tout voir <i data-i="arrow-right"></i></div></div>
+          <div class="loc" style="margin-top: 9px"><i data-i="map-pin" class="pin"></i><div class="select">Toute l’Égypte <i data-i="chevron-down" class="chev"></i></div><div class="btn-apply">Appliquer</div></div>
+          <div class="grid" style="margin-top: 13.6px">
+            <div class="gcard"><div class="media"><img src="assets/img/iphone-16-pro-max.jpg" alt="iPhone 16 Pro Max" /><div class="heart"><i data-i="heart"></i></div><div class="pager"><i class="on"></i><i></i></div></div><div class="price">39 000 EGP</div></div>
+            <div class="gcard"><div class="media"><img src="assets/img/video-porte.jpg" alt="Vidéo d'un appartement" /></div><div class="price">30 000 EGP / mois</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Logements : filtre ville + liste (composants réels) -->
+      <div class="s2-layer" id="s2-lowB">
+        <div class="app s2-app s2-low">
+          <div class="loc" style="margin-top: 16px">
+            <i data-i="map-pin" class="pin"></i>
+            <div class="select" style="padding-right: 11px"><div class="s2-sel-win"><div class="s2-sel-stack" id="s2-stack"><div>Toute l’Égypte</div><div>Alexandrie</div><div>Gizeh</div><div>Le Caire</div></div></div><i data-i="chevron-down" class="chev"></i></div>
+            <div class="btn-apply" id="s2-apply">Appliquer</div>
+          </div>
+          <div class="lcard" id="s2-list">
+            <div class="media"><img src="assets/img/chambre-toub-ramli.jpg" alt="Chambre de l'appartement T3 meublé à Toub Ramli" /><div class="heart"><i data-i="heart"></i></div><div class="pager"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="price" data-layout-allow-overlap>320 € / mois</div>
+            <div class="ttl" data-layout-allow-overlap>APPARTEMENT T3 MEUBLÉ – 2 CHAMBRES</div>
+            <div class="tx">Appartement</div>
+            <div class="tx">Meublé · 2 chambres · Cuisine équipée · Balcon</div>
+            <div class="where"><i data-i="map-pin"></i>Toub Ramli · Le Caire</div>
+            <div class="when">Aujourd’hui à 01:09</div>
+          </div>
+        </div>
+        <div id="s2-carte" data-layout-allow-occlusion><div id="s2-zoom"></div><i data-i="map"></i><span id="s2-carte-lb" data-layout-allow-overlap>Carte</span></div>
+        <div id="s2-bell" data-layout-allow-occlusion><i data-i="bell"></i></div>
+      </div>
+
+      <!-- Haut commun : en-tête, recherche, catégories -->
+      <div class="s2-layer" id="s2-topL">
+        <div class="app s2-app" style="background: transparent">
+          <div class="hdr"><div class="logo">elmakanjamil</div><i data-i="bell" class="bell"></i></div>
+          <div class="search"><i data-i="search" class="ic"></i><div class="ph">Rechercher sur almakanjamil</div><div class="go"><i data-i="arrow-right"></i></div></div>
+          <div class="cats">
+            <div class="cat"><div class="tile" id="s2-tile-log"><i data-i="house"></i></div><div class="lb" id="s2-lb-log">Logements</div></div>
+            <div class="cat"><div class="tile"><i data-i="shopping-bag"></i></div><div class="lb">Achat &amp; Vente</div></div>
+            <div class="cat"><div class="tile"><i data-i="car-front"></i></div><div class="lb">Véhicules</div></div>
+            <div class="cat"><div class="tile"><i data-i="washing-machine"></i></div><div class="lb">Électroménager</div></div>
+            <div class="cat"><div class="tile"><i data-i="ellipsis"></i></div><div class="lb">Autres</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation basse réelle -->
+      <div class="s2-navwrap" id="s2-navA"><div class="app"><div class="nav">
+        <div class="it on"><i data-i="search"></i>Rechercher</div><div class="it"><i data-i="map-pin-house"></i>Logements</div><div class="it"><i data-i="square-plus" class="plus"></i>Publier</div><div class="it"><i data-i="heart"></i>Favoris</div><div class="it"><i data-i="user"></i>Mon compte</div>
+      </div></div></div>
+      <div class="s2-navwrap" id="s2-navB" style="opacity: 0"><div class="app"><div class="nav">
+        <div class="it"><i data-i="search"></i>Rechercher</div><div class="it on"><i data-i="map-pin-house"></i>Logements</div><div class="it"><i data-i="square-plus" class="plus"></i>Publier</div><div class="it"><i data-i="heart"></i>Favoris</div><div class="it"><i data-i="user"></i>Mon compte</div>
+      </div></div></div>
+
+      <div class="finger" id="s2-finger"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s2-finger";
+      // Arrivée par le bas (balayage vertical continu depuis le hook).
+      tl.fromTo("#s2-cam", { y: 700, filter: "blur(16px)" }, { y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0);
+      tl.set("#s2-lowB", { x: 1080 }, 0);
+      // Légère poussée sur le logotype et la recherche pendant « Il est sur almakanjamil ».
+      tl.fromTo("#s2-cam", { scale: 1, transformOrigin: "540px 520px" }, { scale: 1.035, duration: 1.0, ease: "power1.inOut" }, 0.3);
+      // Tap sur la catégorie Logements.
+      amj.fingerIn(tl, f, 1.05, 132, 653, 1150, 1550);
+      amj.press(tl, f, 1.45);
+      tl.to("#s2-tile-log", { backgroundColor: "#c84606", color: "#ffffff", duration: 0.12, ease: "power2.out" }, 1.45);
+      tl.to("#s2-lb-log", { color: "#c84606", duration: 0.12 }, 1.45);
+      tl.to("#s2-cam", { scale: 1, duration: 0.35, ease: "power2.inOut" }, 1.45);
+      // Bascule vers la page Logements (le haut reste en place).
+      tl.to("#s2-lowA", { x: -1080, filter: "blur(10px)", duration: 0.32, ease: "power3.inOut" }, 1.5);
+      tl.fromTo("#s2-lowB", { x: 1080, filter: "blur(10px)" }, { x: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.inOut" }, 1.5);
+      tl.to("#s2-navA", { opacity: 0, duration: 0.15 }, 1.5);
+      tl.to("#s2-navB", { opacity: 1, duration: 0.15 }, 1.5);
+      // Filtre ville : Toute l'Égypte -> Le Caire.
+      amj.moveTo(tl, f, 1.62, 333, 835, 0.3);
+      amj.press(tl, f, 2.0);
+      tl.to("#s2-stack", { y: -37, duration: 0.07, ease: "power2.inOut" }, 2.02);
+      tl.to("#s2-stack", { y: -74, duration: 0.07, ease: "power2.inOut" }, 2.1);
+      tl.to("#s2-stack", { y: -111, duration: 0.12, ease: "power3.out" }, 2.18);
+      // Appliquer.
+      amj.moveTo(tl, f, 2.38, 673, 835, 0.2);
+      amj.press(tl, f, 2.62);
+      tl.to("#s2-apply", { scale: 0.94, duration: 0.06, ease: "power2.in" }, 2.56);
+      tl.to("#s2-apply", { scale: 1, duration: 0.12, ease: "power2.out" }, 2.62);
+      tl.to("#s2-list", { opacity: 0.25, filter: "blur(6px)", duration: 0.1, ease: "power2.in" }, 2.64);
+      tl.to("#s2-list", { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 2.74);
+      // La caméra suit le bouton Carte, puis zoom à travers lui.
+      tl.to("#s2-cam", { scale: 1.3, transformOrigin: "159px 1651px", duration: 0.33, ease: "power2.inOut" }, 2.72);
+      amj.moveTo(tl, f, 2.72, 159, 1651, 0.3);
+      amj.press(tl, f, 3.08);
+      tl.to(f, { opacity: 0, duration: 0.06 }, 3.1);
+      tl.set("#s2-lowB", { zIndex: 40 }, 3.1);
+      tl.set("#s2-zoom", { opacity: 1 }, 3.1);
+      tl.to(["#s2-carte > svg", "#s2-carte-lb"], { opacity: 0, duration: 0.12, ease: "power2.in" }, 3.1);
+      tl.fromTo("#s2-zoom", { scale: 1, transformOrigin: "50% 50%" }, { scale: 32, duration: 0.3667, ease: "power3.in" }, 3.1);
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

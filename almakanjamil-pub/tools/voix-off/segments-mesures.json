@@ -1,0 +1,100 @@
+[
+ {
+  "id": "v1a",
+  "text": "Un T3 meublé au Caire,",
+  "phonemes": "œ̃ tˈe tʁwˈa møblˈe o kˈɛʁ,",
+  "dur": 1.391,
+  "peak": 0.644
+ },
+ {
+  "id": "v1b",
+  "text": "à trois cent vingt euros par mois ?",
+  "phonemes": "a tʁwˈa sˈɑ̃ vˈɛ̃t øʁˈo paʁ mwˈa ?",
+  "dur": 1.485,
+  "peak": 0.622
+ },
+ {
+  "id": "v2a",
+  "text": "Il est sur almakanjamil.",
+  "phonemes": "il ɛ syʁ almakandʒamˈil.",
+  "dur": 1.476,
+  "peak": 0.658
+ },
+ {
+  "id": "v2b",
+  "text": "Filtrez par ville,",
+  "phonemes": "filtʁˈe paʁ vˈil,",
+  "dur": 1.062,
+  "peak": 0.836
+ },
+ {
+  "id": "v2c",
+  "text": "et repérez chaque annonce sur la carte.",
+  "phonemes": "e ʁəpeʁˈe ʃak anˈɔ̃s syʁ la kˈaʁt.",
+  "dur": 1.885,
+  "peak": 0.539
+ },
+ {
+  "id": "v3a",
+  "text": "Photos, vidéos :",
+  "phonemes": "fotˈo, videˈo :",
+  "dur": 0.932,
+  "peak": 0.804
+ },
+ {
+  "id": "v3b",
+  "text": "visitez avant même de vous déplacer.",
+  "phonemes": "vizitˈez avˌɑ̃ mˈɛm də vu deplasˈe.",
+  "dur": 1.829,
+  "peak": 0.676
+ },
+ {
+  "id": "v4a",
+  "text": "Vous vendez un téléphone, une voiture ?",
+  "phonemes": "vu vɑ̃dˈez œ̃ telefˈɔn, yn vwatˈyʁ ?",
+  "dur": 1.994,
+  "peak": 0.655
+ },
+ {
+  "id": "v5a",
+  "text": "Collez votre message Telegram :",
+  "phonemes": "kɔlˈe votʁ mɛsˈaʒ teleɡʁˈam :",
+  "dur": 1.768,
+  "peak": 0.64
+ },
+ {
+  "id": "v5b",
+  "text": "l'IA remplit l'annonce pour vous.",
+  "phonemes": "liˈa ʁɑ̃plˈi lanˈɔ̃s puʁ vˈu.",
+  "dur": 1.437,
+  "peak": 0.72
+ },
+ {
+  "id": "v6a",
+  "text": "Contact direct,",
+  "phonemes": "kɔ̃tˈakt diʁˈɛkt,",
+  "dur": 1.087,
+  "peak": 0.637
+ },
+ {
+  "id": "v6b",
+  "text": "sur Ouatsap ou Telegram.",
+  "phonemes": "syʁ watsˈap u teleɡʁˈam.",
+  "dur": 1.41,
+  "peak": 0.626
+ },
+ {
+  "id": "v7a",
+  "text": "Et c'est gratuit.",
+  "phonemes": "e sɛ ɡʁatyˈi.",
+  "dur": 0.888,
+  "peak": 0.714
+ },
+ {
+  "id": "v7b",
+  "text": "almakanjamil point com.",
+  "phonemes": "almakandʒamˈil pwˌɛ̃ kˈɔm.",
+  "dur": 1.42,
+  "peak": 0.568
+ }
+]

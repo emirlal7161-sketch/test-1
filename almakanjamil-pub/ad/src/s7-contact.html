@@ -1,0 +1,74 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #s7-cam { position: absolute; inset: 0; }
+    #s7-photo { position: absolute; left: 0; top: 0; width: 1080px; height: 470px; overflow: hidden; }
+    #s7-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
+    #s7-card { position: absolute; left: 40px; top: 400px; width: 1000px; height: 1600px; background: #fff; border-radius: 40px; border: 2px solid #ede7e2; box-shadow: 0 6px 22px rgba(16, 28, 41, 0.07); padding: 40px 40px 0; color: #101c29; }
+    #s7-info .pr { display: flex; align-items: baseline; gap: 26px; }
+    #s7-info .big { font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 72px; letter-spacing: -0.02em; }
+    #s7-info .per { font-family: "AMJ Poppins", sans-serif; font-weight: 600; font-size: 48px; }
+    #s7-info .wk { margin-top: 6px; font-family: "AMJ Inter", sans-serif; font-size: 38px; color: #675b52; }
+    #s7-info .tt { margin-top: 20px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 47px; line-height: 1.2; letter-spacing: -0.01em; }
+    #s7-info .ty { margin-top: 16px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 37px; }
+    #s7-info .wh { margin-top: 14px; display: flex; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-size: 38px; }
+    #s7-info .wh svg { width: 40px; height: 40px; }
+    #s7-info .pub { margin-top: 12px; font-family: "AMJ Inter", sans-serif; font-size: 33px; color: #675b52; }
+    .cbtn { position: absolute; height: 88px; border-radius: 20px; background: #fff; border: 2.5px solid #ede7e2; box-shadow: 0 2px 6px rgba(16, 28, 41, 0.07); display: flex; align-items: center; gap: 22px; padding: 0 30px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 36px; color: #101c29; white-space: nowrap; }
+    .cbtn svg { width: 44px; height: 44px; }
+    #s7-wa { background: #c84606; border-color: #c84606; color: #fff; }
+    .bub { position: absolute; padding: 26px 36px 28px; font-family: "AMJ Inter", sans-serif; font-weight: 500; font-size: 38px; line-height: 1.3; color: #101c29; box-shadow: 0 18px 40px rgba(40, 28, 19, 0.16); opacity: 0; }
+    #s7-b1 { left: 300px; top: 480px; width: 700px; border-radius: 40px 40px 10px 40px; background: #ffe9d9; }
+    #s7-b2 { left: 80px; top: 690px; border-radius: 40px 40px 40px 10px; background: #fff; border: 2.5px solid #e9e2db; white-space: nowrap; }
+    .bub .meta { margin-top: 8px; display: flex; justify-content: flex-end; align-items: center; gap: 8px; font-size: 28px; color: #675b52; }
+    .bub .meta svg { width: 30px; height: 30px; color: #c84606; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.25); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s7" data-width="1080" data-height="1920">
+    <div id="s7-cam">
+      <div id="s7-photo"><img src="assets/img/salon-east-park@hd.jpg" alt="Salon de l'annonce East Park" /></div>
+      <div id="s7-card">
+        <div id="s7-info">
+          <div class="pr"><span class="big">320 €</span><span class="per">/ mois</span></div>
+          <div class="wk">110 € / semaine</div>
+          <div class="tt">Appartement meublé T3 sur East park</div>
+          <div class="ty">Appartement · 3 pièces</div>
+          <div class="wh"><i data-i="map-pin"></i>Le Caire</div>
+          <div class="pub">Logements · publiée aujourd’hui à 03:47</div>
+        </div>
+      </div>
+      <div class="cbtn" id="s7-tg" style="left: 80px; top: 950px; width: 303px"><i data-i="send"></i>Telegram</div>
+      <div class="cbtn" id="s7-tgf" style="left: 405px; top: 950px; width: 437px"><i data-i="send"></i>Telegram Femme</div>
+      <div class="cbtn" id="s7-tgh" style="left: 80px; top: 1060px; width: 442px"><i data-i="send"></i>Telegram Homme</div>
+      <div class="cbtn" id="s7-wa" style="left: 80px; top: 1170px; width: 449px"><i data-i="message-circle"></i>WhatsApp Femme</div>
+      <div class="bub" id="s7-b1">Bonjour, l’appartement est-il toujours disponible ?<div class="meta">envoyé<i data-i="check-check"></i></div></div>
+      <div class="bub" id="s7-b2">Oui ! Visite possible demain.</div>
+    </div>
+    <div class="finger" id="s7-finger"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s7-finger";
+      tl.fromTo("#s7-cam", { y: 700, filter: "blur(16px)" }, { y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0);
+      // « Contact direct » : tap sur le bouton WhatsApp réel de l'annonce.
+      amj.fingerIn(tl, f, 0.24, 305, 1214, 1080, 1700);
+      amj.press(tl, f, 0.55);
+      amj.moveTo(tl, f, 0.66, 600, 1300, 0.24);
+      tl.to("#s7-wa", { scale: 0.96, backgroundColor: "#a93b05", duration: 0.06, ease: "power2.in" }, 0.49);
+      tl.to("#s7-wa", { scale: 1, backgroundColor: "#c84606", duration: 0.16, ease: "power2.out" }, 0.55);
+      tl.to("#s7-info", { opacity: 0.12, filter: "blur(3px)", duration: 0.2, ease: "power2.out" }, 0.62);
+      tl.fromTo("#s7-b1", { opacity: 0, scale: 0.72, y: 40, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "power3.out" }, 0.7);
+      tl.fromTo("#s7-b2", { opacity: 0, scale: 0.72, y: 40, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "power3.out" }, 1.55);
+      // « ou Telegram ».
+      amj.moveTo(tl, f, 1.95, 231, 994, 0.2);
+      amj.press(tl, f, 2.2);
+      amj.moveTo(tl, f, 2.32, 470, 1090, 0.2);
+      tl.to("#s7-tg", { scale: 0.96, duration: 0.06, ease: "power2.in" }, 2.14);
+      tl.to("#s7-tg", { scale: 1, borderColor: "#c84606", backgroundColor: "#fff3ea", duration: 0.16, ease: "power2.out" }, 2.2);
+      window.__timelines["s7"] = tl;
+    })();
+  </script>
+</template>

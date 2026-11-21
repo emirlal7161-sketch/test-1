@@ -1,0 +1,66 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #d74800; }
+    #s5-cam { position: absolute; inset: 0; }
+    /* Carte annonce réelle (Achat & Vente), agrandie */
+    #s5-card { position: absolute; left: 160px; top: 470px; width: 760px; height: 630px; border-radius: 44px; background: #fff; box-shadow: 0 30px 60px rgba(60, 20, 0, 0.28); padding: 24px; color: #101c29; }
+    #s5-img { position: relative; width: 712px; height: 372px; border-radius: 30px; overflow: hidden; }
+    #s5-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+    .s5-heart { position: absolute; right: 18px; top: 18px; width: 84px; height: 84px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: #101c29; }
+    .s5-heart svg { width: 44px; height: 44px; }
+    #s5-price { margin-top: 22px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 66px; letter-spacing: -0.015em; line-height: 1.05; }
+    #s5-ttl { margin-top: 6px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 46px; line-height: 1.2; }
+    #s5-meta { margin-top: 14px; display: flex; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-size: 33px; color: #101c29; }
+    #s5-meta .tag { height: 56px; padding: 0 18px 0 15px; border-radius: 14px; background: #dfedf9; font-weight: 600; font-size: 29px; display: inline-flex; align-items: center; gap: 10px; }
+    #s5-meta .tag svg { width: 32px; height: 32px; color: #c84606; }
+    #s5-meta .w { display: inline-flex; align-items: center; gap: 8px; }
+    #s5-meta .w svg { width: 34px; height: 34px; }
+    /* Tuiles de catégories réelles, en blanc sur l'orange de la bannière */
+    .s5-cat { position: absolute; top: 1112px; width: 220px; margin-left: -110px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .s5-tile { width: 112px; height: 112px; border-radius: 28px; background: rgba(255, 255, 255, 0.18); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .s5-tile svg { width: 58px; height: 58px; }
+    .s5-lb { font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 30px; color: #fff; white-space: nowrap; }
+    #s5-wipe { position: absolute; inset: 0; background: #fcfbf9; }
+    .finger { position: absolute; left: -39px; top: -39px; width: 78px; height: 78px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); border: 2px solid rgba(40, 28, 19, 0.14); box-shadow: 0 10px 24px rgba(40, 28, 19, 0.3); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s5" data-width="1080" data-height="1920">
+    <div id="s5-cam">
+      <div id="s5-card">
+        <div id="s5-img"><img src="assets/img/iphone-16-pro-max@hd.jpg" alt="iPhone 16 Pro Max, photo de l'annonce" /><div class="s5-heart"><i data-i="heart"></i></div></div>
+        <div id="s5-price">39 000 EGP</div>
+        <div id="s5-ttl">Iphone 16 pro max</div>
+        <div id="s5-meta"><span class="tag"><i data-i="tag"></i>Téléphones et informatique</span><span class="w"><i data-i="map-pin"></i>Le Caire</span></div>
+      </div>
+      <div class="s5-cat" id="s5-c1" style="left: 300px"><div class="s5-tile" id="s5-t1" style="background: #ffffff; color: #d74800"><i data-i="shopping-bag"></i></div><div class="s5-lb">Achat &amp; Vente</div></div>
+      <div class="s5-cat" id="s5-c2" style="left: 540px"><div class="s5-tile" id="s5-t2"><i data-i="car-front"></i></div><div class="s5-lb">Véhicules</div></div>
+      <div class="s5-cat" id="s5-c3" style="left: 780px"><div class="s5-tile" id="s5-t3"><i data-i="washing-machine"></i></div><div class="s5-lb">Électroménager</div></div>
+    </div>
+    <div class="finger" id="s5-finger"></div>
+    <div id="s5-wipe"></div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var f = "#s5-finger";
+      tl.set("#s5-wipe", { y: 1920 }, 0);
+      // La carte iPhone arrive dans le sens du glissement.
+      tl.fromTo("#s5-card", { x: 520, filter: "blur(14px)", rotation: 0 }, { x: 0, filter: "blur(0px)", duration: 0.36, ease: "power3.out" }, 0);
+      ["#s5-c1", "#s5-c2", "#s5-c3"].forEach(function (c, i) {
+        tl.fromTo(c, { y: 60, opacity: 0, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0.18 + i * 0.06);
+      });
+      // « une voiture ? » : tap sur Véhicules.
+      amj.fingerIn(tl, f, 1.16, 540, 1168, 620, 1760);
+      amj.press(tl, f, 1.5);
+      amj.moveTo(tl, f, 1.62, 660, 1345, 0.22);
+      tl.to("#s5-t2", { backgroundColor: "#ffffff", color: "#d74800", duration: 0.12, ease: "power2.out" }, 1.5);
+      tl.to("#s5-t1", { backgroundColor: "rgba(255,255,255,0.18)", color: "#ffffff", duration: 0.12, ease: "power2.out" }, 1.5);
+      // Le formulaire de dépôt monte depuis le bas.
+      tl.to(f, { opacity: 0, duration: 0.12 }, 2.0);
+      tl.to("#s5-wipe", { y: 0, duration: 0.3167, ease: "power3.in" }, 2.05);
+      tl.to("#s5-cam", { y: -420, filter: "blur(10px)", duration: 0.3167, ease: "power3.in" }, 2.05);
+      window.__timelines["s5"] = tl;
+    })();
+  </script>
+</template>

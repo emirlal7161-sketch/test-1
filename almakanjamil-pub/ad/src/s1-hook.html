@@ -1,0 +1,59 @@
+<template>
+  <link rel="stylesheet" href="assets/kit.css" />
+  <script src="assets/amj.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fcfbf9; }
+    #s1-cam { position: absolute; inset: 0; }
+    #s1-photo { position: absolute; left: 0; top: 0; width: 1080px; height: 1072px; overflow: hidden; }
+    #s1-photo-in { position: absolute; inset: 0; }
+    #s1-photo-in img { width: 100%; height: 100%; object-fit: cover; object-position: 56% 50%; display: block; }
+    .s1-fb { position: absolute; top: 118px; width: 107px; height: 107px; border-radius: 30px; background: #fff; display: flex; align-items: center; justify-content: center; color: #c84606; box-shadow: 0 4px 14px rgba(16, 28, 41, 0.1); }
+    .s1-fb svg { width: 46px; height: 46px; }
+    #s1-count { position: absolute; right: 34px; top: 922px; height: 62px; padding: 0 22px 0 18px; border-radius: 31px; background: rgba(27, 11, 4, 0.78); color: #fff; display: flex; align-items: center; gap: 12px; font-family: "AMJ Inter", sans-serif; font-weight: 600; font-size: 34px; }
+    #s1-count svg { width: 34px; height: 34px; }
+    #s1-card { position: absolute; left: 40px; top: 1010px; width: 1000px; height: 1000px; background: #fff; border-radius: 40px; border: 2px solid #ede7e2; box-shadow: 0 6px 22px rgba(16, 28, 41, 0.07); padding: 46px 40px 0; color: #101c29; }
+    #s1-price { position: relative; display: flex; align-items: baseline; gap: 26px; height: 92px; }
+    #s1-hl { position: absolute; left: -14px; top: 40px; width: 430px; height: 50px; border-radius: 12px; background: #ffe9d9; transform-origin: 0% 50%; }
+    #s1-price span { position: relative; }
+    #s1-price .big { font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 76px; letter-spacing: -0.02em; }
+    #s1-price .per { font-family: "AMJ Poppins", sans-serif; font-weight: 600; font-size: 48px; }
+    #s1-week { margin-top: 10px; font-family: "AMJ Inter", sans-serif; font-size: 38px; color: #675b52; height: 46px; }
+    #s1-ttl { margin-top: 26px; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.2; letter-spacing: -0.01em; }
+    #s1-type { margin-top: 18px; font-family: "AMJ Poppins", sans-serif; font-weight: 700; font-size: 38px; }
+    #s1-where { margin-top: 18px; display: flex; align-items: center; gap: 14px; font-family: "AMJ Inter", sans-serif; font-size: 38px; }
+    #s1-where svg { width: 40px; height: 40px; }
+    #s1-title { position: absolute; left: 110px; top: 330px; width: 860px; padding: 38px 40px 44px; border-radius: 40px; background: rgba(40, 28, 19, 0.93); color: #fff; text-align: center; font-family: "AMJ Poppins", sans-serif; font-weight: 800; font-size: 98px; line-height: 1.06; letter-spacing: -0.025em; }
+    #s1-title .acc { color: #ffb68a; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div id="s1-cam">
+      <div id="s1-photo">
+        <div id="s1-photo-in"><img src="assets/img/salon-east-park@hd.jpg" alt="Salon de l'appartement meublé T3 à East Park, photo de l'annonce" /></div>
+        <div class="s1-fb" style="left: 36px"><i data-i="arrow-left"></i></div>
+        <div class="s1-fb" style="left: 815px"><i data-i="share-2"></i></div>
+        <div class="s1-fb" style="left: 937px"><i data-i="heart"></i></div>
+        <div id="s1-count"><i data-i="camera"></i>1/7</div>
+      </div>
+      <div id="s1-card">
+        <div id="s1-price"><div id="s1-hl"></div><span class="big" id="s1-p1">320 €</span><span class="per" id="s1-p2">/ mois</span></div>
+        <div id="s1-week">110 € / semaine</div>
+        <div id="s1-ttl">Appartement meublé T3 sur East park</div>
+        <div id="s1-type">Appartement · 3 pièces</div>
+        <div id="s1-where"><i data-i="map-pin"></i>Le Caire</div>
+      </div>
+      <div id="s1-title">Un T3 meublé<br />au <span class="acc">Caire</span> ?</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      // Poussée lente sur la vraie photo du salon.
+      tl.fromTo("#s1-photo-in", { scale: 1, transformOrigin: "50% 46%" }, { scale: 1.07, duration: 3.4667, ease: "none" }, 0);
+      // Le prix réel se pose sur « trois cent vingt euros ».
+      tl.fromTo("#s1-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.32, ease: "power3.out" }, 1.75);
+      // Sortie : balayage vertical vers le haut (le plan suivant arrive par le bas).
+      tl.to("#s1-cam", { y: -760, filter: "blur(18px)", duration: 0.2, ease: "power3.in" }, 3.2667);
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>
